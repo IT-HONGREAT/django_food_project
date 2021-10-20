@@ -11,16 +11,31 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+from pathlib import Path
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = Path(__file__).resolve().parent.parent
 
+local_env = open(os.path.join(BASE_DIR,'.env'))
+
+env_list = dict()
+
+while True:
+    line = local_env.readline()
+    if not line:
+        break
+    line = line.replace('\n','')
+    start = line.find('=')
+    key = line[:start]
+    value = line[start+1:]
+    env_list[key] = value
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'lc)@_tm)*)iw3h0-u%@-d%qjxwl6)@n@&y$56n5q7v$o5^_+6-'
+SECRET_KEY = env_list['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
