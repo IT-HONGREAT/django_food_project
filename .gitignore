@@ -263,7 +263,4 @@ Temporary Items
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,visualstudiocode,python,django
 
-secret.env
-
-
-secret.env
+env

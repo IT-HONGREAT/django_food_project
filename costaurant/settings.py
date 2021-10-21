@@ -25,7 +25,7 @@ while True:
     line = local_env.readline()
     if not line:
         break
-    line = line.replace('\n','')
+    line = line.replace('\n',"")
     start = line.find('=')
     key = line[:start]
     value = line[start+1:]
@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'foods',
 ]
 
 MIDDLEWARE = [
