@@ -1,21 +1,12 @@
+{% extends './base.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Food Info</title>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href={% static "foods/css/styles.css"%}>
-</head>
-<body>
-  <div> July 16, 2020 </div>
-  <hr/>
+{% block date-block %}
+  <div> Today </div>
+{% endblock date-block %}
 
-  <h1>Food Info</h1>
-  <h2>넌 먹을 때가 제일 이뻐</h2>
+{% block food-container %}
   
-  <div class="food-container">
-
     <div class="food">
       <img src={% static "foods/images/chicken.jpg" %} width="300px" height="200px"/>
       <div class="info">
@@ -50,8 +41,4 @@
         <P>칼로리 : </p>
         <a href="#">메뉴 보기</a>
       </div>
-    </div>
-    
-  </div>
-</body>
-</html>
+{% endblock food-container %}
