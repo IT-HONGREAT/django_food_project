@@ -14,6 +14,9 @@ def index(request):
 
 
 def food_detail(request,food):
-    
-    context = {"name":food}
+    context = dict()
+    if food == "chicken":
+        context["name"] = "닭강정"
+        context["description"] = "칼로리 : 매우높음 \t 가격 : 20000만원 미만"
+        context["img_path"] = "foods/images/chicken.jpg"
     return render(request, 'foods/detail.html', context=context)
