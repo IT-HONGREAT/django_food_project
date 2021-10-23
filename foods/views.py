@@ -18,7 +18,8 @@ def food_detail(request,food):
     context = dict()
     if food == "chicken":
         context["name"] = "닭강정"
-        context["description"] = "칼로리 : 매우높음 \t 가격 : 20000만원 미만"
+        context["calorie"] = "{}kal / {}인분".format(663,1)
+        context["description"] = "가격 : 20000만원 미만"
         context["img_path"] = "foods/images/chicken.jpg"
 
     else:
