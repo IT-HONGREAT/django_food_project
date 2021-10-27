@@ -9,7 +9,7 @@
     {%for menu in menus %}
 
     <div class="food">
-      <img src= {% get_static_prefix %} {{menu.img_path}} width="300px" height="200px"/>
+      <img src= {% get_static_prefix %}{{menu.img_path}} width="300px" height="200px"/>
       <div class="info">
         <h3>{{menu.name}}</h3>
         <P>{{menu.calorie}} kcal</p>
