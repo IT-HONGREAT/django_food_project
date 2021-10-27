@@ -3,14 +3,16 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from datetime import datetime
 from django.http import Http404
+from foods.models import Menu
 
 # Create your views here.
 def index(request):
+    context = dict()
     today = datetime.today().date()
-    # print(today)
+    menus = Menu.objects.all()
 
-    context = {"date":today}
-
+    context["date"] = today
+    context["menus"] = menus
     return render(request, 'foods/index.html', context=context)
 
 

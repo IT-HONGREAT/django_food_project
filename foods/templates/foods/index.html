@@ -6,39 +6,18 @@
 {% endblock date-block %}
 
 {% block food-container %}
-  
+    {%for menu in menus %}
+
     <div class="food">
-      <img src={% static "foods/images/chicken.jpg" %} width="300px" height="200px"/>
+      <img src= {% get_static_prefix %} {{menu.img_path}} width="300px" height="200px"/>
       <div class="info">
-        <h3>닭강정</h3>
-        <P>칼로리 : 매우높음</p>
-        <a href="/foods/chicken">메뉴 보기</a>
+        <h3>{{menu.name}}</h3>
+        <P>{{menu.calorie}} kcal</p>
+        <P>{{menu.description}}</p>
+        <a href=#>메뉴 보기</a>
       </div>
     </div>
+
+    {% endfor %}
     
-    <div class="food">
-      <img src="images/sushi.jpg" width="300px" height="200px"/>
-      <div class="info">
-        <h3>음식이름</h3>
-        <P>칼로리 : </p>
-        <a href="#">메뉴 보기</a>
-      </div>
-    </div>
-    
-    <div class="food">
-      <img src="images/burger.jpg" width="300px" height="200px"/>
-      <div class="info">
-        <h3>음식이름</h3>
-        <P>칼로리 : </p>
-        <a href="#">메뉴 보기</a>
-      </div>
-    </div>
-    
-    <div class="food">
-      <img src="images/bibimbap.jpg" width="300px" height="200px"/>
-      <div class="info">
-        <h3>음식이름</h3>
-        <P>칼로리 : </p>
-        <a href="#">메뉴 보기</a>
-      </div>
 {% endblock food-container %}
