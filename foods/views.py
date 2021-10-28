@@ -16,15 +16,8 @@ def index(request):
     return render(request, 'foods/index.html', context=context)
 
 
-def food_detail(request,food):
+def food_detail(request,pk):
     context = dict()
-    if food == "chicken":
-        context["name"] = "닭강정"
-        context["calorie"] = 663
-        context["description"] = "가격 : 20000만원 미만"
-        context["img_path"] = "foods/images/chicken.jpg"
-
-    else:
-        raise Http404("잘못된 접근 입니다!")
-    
+    menu = Menu.objects.get(id=pk)
+    context["menu"] = menu
     return render(request, 'foods/detail.html', context=context)
