@@ -10,10 +10,11 @@
 <body>
 <div class="food-detail">
   <h2>{{menu.name}}</h2>
-<div>{{menu.calorie}}</div>
-<p>{{menu.description}}</p>
 
 <img src={% get_static_prefix %}{{menu.img_path}} />
+
+<div>{{menu.calorie}} kcal</div>
+<p>{{menu.description}}</p>
 
 <a href="/foods/menu/">돌아가기</a
 </body>

@@ -12,8 +12,9 @@ body {
 }
 
 h2 {
-  font-size:32px;
+  font-size:3rem;
   color: #58595e;
+  text-align:center
 }
 
 .header h3 {
@@ -34,15 +35,19 @@ h2 {
 
 .food-detail p {
   color: #58595b;
-  font-size: 16px;
-  text-align: left;
+  font-size: 2rem;
+  text-align:left;
 }
 
 .food-detail img {
     display: block;
-    margin-bottom: 16px;
+    
     width: 300px;
     height: 200px;
+    margin-left:auto;
+    margin-right:auto;
+
+
 }
 
 .food-detail a {
@@ -52,6 +57,15 @@ h2 {
   border: #58595b 2px solid;
   padding: 5px;
   display: inline-block;
+  margin-left:auto;
+  margin-right:auto;
   
 }
+
+.food-detail div {
+  color: #58595b;
+  font-size: 2rem;
+  text-align: left;
+}
+
 
