@@ -1,1 +1,10 @@
-# django_food_project
+# 음식정보 페이지구현 project
+
+
+### raspberrypi 프로젝트와 이어서 혼자 진행하려는 웹페이지 프로젝트이다.
+
+* raspberrypi4 를 이용
+    * 무게센서로 무게를 측정 -> 무게 data를 mariaDB에 올림
+    * Yolo tiny모델과 카메라를 이용 -> 음식 분류
+    
+    * 음식에 대한 정보를 받아서 정보를 보여주는 웹 페이지를 만드는 프로젝트이다. (현재 진행형)
