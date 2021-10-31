@@ -38,11 +38,11 @@ while True:
 SECRET_KEY = env_list['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = False
-DEBUG = True
+# DEBUG = False #로컬x
+DEBUG = True #로컬수정
 
-# ALLOWED_HOSTS = ['.pythonanywhere.com']
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ['.pythonanywhere.com'] #로컬x
+ALLOWED_HOSTS = [] #로컬수정
 
 
 # Application definition
@@ -135,5 +135,5 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-STATIC_URL = '/static/'
-# STATIC_ROOT = os.path.join(BASE_DIR,'static')
+STATIC_URL = '/static/'  #로컬수정
+# STATIC_ROOT = os.path.join(BASE_DIR,'static') #로컬X
