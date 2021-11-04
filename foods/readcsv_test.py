@@ -1,17 +1,18 @@
 import csv
 
-
-
-def get(n):
-    num = int(n)
+def get(file_path):
+    
     result = []
-
-    with open('/Users/hong-in-yeong/WEB/hiy-django/costaurant/csv/Food_info_test.csv.csv',mode='r')as f_i:
+    
+    with open(file_path,mode='r')as f_i:
         reader = csv.reader(f_i)
 
         for i in reader:
             result.append(i)
-    print(num)
+                
+                    
+    
     return result
 
-print(get(6))
+
+print(get('/Users/hong-in-yeong/WEB/hiy-django/costaurant/csv/Food_info_test.csv.csv'))
