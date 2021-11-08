@@ -6,11 +6,11 @@
 
     {% for  post in  posts%}
 
-        <h3>{{post.title}}</h3> 
+        <h3>제목 : {{post.title}}</h3> 
+        <p>작성일 : {{post.created_date}}</p>
+        <p>내용 : {{post.content}}</p>
+        <p>수정일 : {{post.modified_date}}</p>
 
-        <img src = {{post.food_img}}width="300px" height="200px">
-
-        <p>{{post.content}}</p>
 
     {% endfor %}
 
