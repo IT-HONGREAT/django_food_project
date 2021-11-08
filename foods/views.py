@@ -20,4 +20,4 @@ def food_detail(request,pk):
     context = dict()
     menu = Menu.objects.get(id=pk)
     context["menu"] = menu
-    return render(request, 'foods/detail.html', context=context)
+    return render(request, 'posts/detail.html', context=context)
