@@ -1,0 +1,40 @@
+body {
+  margin: 0;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(175, 84, 218);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: mediumspringgreen;
+  padding: auto;
+}
+
+.navbar_logo i {
+  color: thistle;
+}
+
+.navbar_menu {
+  display: flex;
+  list-style: none;
+}
+
+.navbar_menu li {
+  padding: 8px 12px;
+}
+
+.navbar_icons {
+  list-style: none;
+  color: white;
+  display: flex;
+}
+
+.navbar_icons li {
+  padding: 8px 12px;
+}

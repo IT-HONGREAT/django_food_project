@@ -2,11 +2,16 @@
 
 
 {% block post_container %}
-    <h1> 게시글 목록 페이지 test </h1>
+<div class="navbar">
+    <div class="navbar_logo">
+        <i class="fas fa-piggy-bank"></i>
+        <a href=""> piggy </a>
+    </div>
+</div>
 
     {% for  post in  posts%}
         
-        <h3>제목 : <a href={% url 'post-detail' post.id %}>{{post.title}}</a></h3> 
+        <h3 class="navbar_menu">제목 : <a href={% url 'post-detail' post.id %}>{{post.title}}</a></h3>
         <td>작성일 : {{post.created_date|date:"Y M/d D"}}</td>
         <td>수정일 : {{post.modified_date|date:"Y M/d D"}}</td>
 
