@@ -4,4 +4,14 @@
 {% block post_container %}
     <h1> 게시글 목록 페이지 test </h1>
 
+    {% for  post in  posts%}
+
+        <h3>{{post.title}}</h3> 
+
+        <img src = {{post.food_img}}width="300px" height="200px">
+
+        <p>{{post.content}}</p>
+
+    {% endfor %}
+
 {% endblock post_container %}
