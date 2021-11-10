@@ -1,6 +1,15 @@
 {% extends './base.html' %}
 
 
+{% block post_logo %}
+<div class="navbar">
+    <div class="navbar_logo">
+        <i class="fas fa-piggy-bank"></i>
+        <a href={% url 'post-list' %}> piggy </a>
+    </div>
+</div>
+{% endblock post_logo %}
+
 {% block post_container %}
     <h3>제목 : {{post.title}}</h3> 
     <div>작성일 : {{post.created_date|date:"Y M/d D"}}</div>

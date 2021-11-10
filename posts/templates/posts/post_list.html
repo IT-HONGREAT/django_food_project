@@ -1,14 +1,16 @@
 {% extends './base.html' %}
 
 
-{% block post_container %}
+{% block post_logo %}
 <div class="navbar">
     <div class="navbar_logo">
         <i class="fas fa-piggy-bank"></i>
         <a href=""> piggy </a>
     </div>
 </div>
+{% endblock post_logo %}
 
+{% block post_container %}
     {% for  post in  posts%}
         
         <h3 class="navbar_menu">제목 : <a href={% url 'post-detail' post.id %}>{{post.title}}</a></h3>
