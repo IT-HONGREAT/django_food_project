@@ -1,14 +1,36 @@
 {% extends './base.html' %}
+{% load static %}
 
+{% block css %}
+    <link rel="stylesheet" href="{% static 'posts/css/post_list.css' %}">
+{% endblock css %}
 
 {% block post_logo %}
-<div class="navbar">
-    <div class="navbar_logo">
-        <i class="fas fa-piggy-bank"></i>
-        <a href=""> piggy </a>
+<nav>
+    <div class="navbar">
+        <div class="navbar_logo">
+            <i class="fas fa-piggy-bank"></i>
+            <a href={% url 'post-list' %}> Piggy </a>
+            <a href=""></a>    
+        </div>
+
+        <ul class="navbar_menu">
+            <a href="">test1</a>
+            <a href="">test2</a>
+            <a href="">test3</a>
+            <a href="">test4</a>     
+        </ul>
+        
+        <ul class="navbar_accounts">
+            <a href="">id1</a>
+            <a href="">id2</a>
+            <a href="">id3</a>    
+        </ul>    
     </div>
-</div>
+</nav>
 {% endblock post_logo %}
+
+
 
 {% block post_container %}
     {% for  post in  posts%}

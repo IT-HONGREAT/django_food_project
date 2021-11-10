@@ -6,6 +6,7 @@ body {
 a {
   text-decoration: none;
   color: rgb(175, 84, 218);
+  font-size: 2rem;
 }
 
 .navbar {
@@ -16,8 +17,14 @@ a {
   padding: auto;
 }
 
+.navbar_logo {
+  color: thistle;
+  font-size: 6rem;
+}
+
 .navbar_logo i {
   color: thistle;
+  size: 3rem;
 }
 
 .navbar_menu {
@@ -37,4 +44,9 @@ a {
 
 .navbar_icons li {
   padding: 8px 12px;
+}
+
+.navbar_things {
+  font-size: 3rem;
+  text-align: center;
 }
