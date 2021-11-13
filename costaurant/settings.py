@@ -17,7 +17,7 @@ from pathlib import Path
 # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-local_env = open(os.path.join(BASE_DIR,'.env'))
+local_env = open(os.path.join(BASE_DIR, '.env'))
 
 env_list = dict()
 
@@ -25,7 +25,7 @@ while True:
     line = local_env.readline()
     if not line:
         break
-    line = line.replace('\n',"")
+    line = line.replace('\n', "")
     start = line.find('=')
     key = line[:start]
     value = line[start+1:]
@@ -39,10 +39,10 @@ SECRET_KEY = env_list['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = False #로컬x
-DEBUG = True #로컬수정
+DEBUG = True  # 로컬수정
 
 # ALLOWED_HOSTS = ['.pythonanywhere.com'] #로컬x
-ALLOWED_HOSTS = [] #로컬수정
+ALLOWED_HOSTS = []  # 로컬수정
 
 
 # Application definition
@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'foods',
     'posts',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -136,5 +137,5 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-STATIC_URL = '/static/'  #로컬수정
+STATIC_URL = '/static/'  # 로컬수정
 # STATIC_ROOT = os.path.join(BASE_DIR,'static') #로컬X
