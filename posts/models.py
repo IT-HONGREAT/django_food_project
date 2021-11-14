@@ -10,9 +10,9 @@ class Post(models.Model):
     title = models.CharField(max_length=100)
     food_img = models.CharField(max_length=255)
     created_date = models.DateTimeField(auto_now_add=True)
-    feeling = models.CharField(max_length=80)
-    score = models.IntegerField()
-    content = models.TextField()
+    feeling = models.CharField(max_length=80, default='')
+    score = models.IntegerField(default=0)
+    content = models.TextField(max_length=500)
 
     modified_date = models.DateTimeField(auto_now=True)
 

@@ -30,7 +30,7 @@ def post_create(request):
         #     content=content,
         # )
         # new_post.save()
-        post_form = PostForm(request)
+        post_form = PostForm(request.POST)
         new_post = post_form.save()
         return redirect('post-detail', post_id=new_post.id)
 

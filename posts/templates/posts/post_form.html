@@ -6,7 +6,7 @@
     <form method="POST">{% csrf_token %}
         {% bootstrap_form form %}
         <input type="submit" value="전송" class="btn btn-dark rounded-pill col-6 mt-2" >
-    </form>   
+    </form>
 </div>
 
 <a href={% url 'post-list' %}>돌아가기</a> <!-- form 전용 css를 따로 빼주지않았지만 뒤로가기 귀찮아서 임시생성 -->

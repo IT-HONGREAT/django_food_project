@@ -14,6 +14,6 @@ class PostForm(forms.ModelForm):  # 장고제공_모델폼으로 수정( 위의 
 
     class Meta:
         model = Post
-        fields = ['title', 'food_img', 'feeling',
-                  'score', 'content']  # 선택 출력 (date는 안불러와짐)
-        # fields = '__all__'  # 전체 출력
+        # fields = ['title', 'food_img', 'feeling',
+        #           'score', 'content']  # 선택 출력 (date는 안불러와짐)
+        fields = '__all__'  # 전체 출력
