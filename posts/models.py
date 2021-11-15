@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import MinLengthValidator
 
 # Create your models here.
 
@@ -12,7 +13,8 @@ class Post(models.Model):
     created_date = models.DateTimeField(auto_now_add=True)
     feeling = models.CharField(max_length=80, default='')
     score = models.IntegerField(default=0)
-    content = models.TextField(max_length=500)
+    content = models.TextField(
+        validators=[MinLengthValidator(3, '음식의 설명이나 기분을 3글자 이상 적어주세요!')])
 
     modified_date = models.DateTimeField(auto_now=True)
 
