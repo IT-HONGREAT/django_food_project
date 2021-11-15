@@ -31,10 +31,11 @@ def post_create(request):
         # )
         # new_post.save()
         post_form = PostForm(request.POST)
-        new_post = post_form.save()
-        return redirect('post-detail', post_id=new_post.id)
+        if post_form.is_valid():  # 유효성검증을 해주는 조건문
+            new_post = post_form.save()
+            return redirect('post-detail', post_id=new_post.id)
 
     # get방식 일 때, 폼을 돌려주는 원래 페이지로 줌
     else:
         post_form = PostForm
-        return render(request, 'posts/post_form.html', {'form': post_form})
+    return render(request, 'posts/post_form.html', {'form': post_form})
