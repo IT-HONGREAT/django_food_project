@@ -1,15 +1,20 @@
+{% extends './base.html' %}
 <!-- {% load bootstrap4 %}
 {% load static %} -->
 {% bootstrap_css %}
 
+{% block css %}
+    <link rel="stylesheet" href="{% static 'posts/css/form.css' %}">
+{% endblock css %}
 
+{% block form %}
 <div style="text-align: center; max-width: 500px; margin: 4rem auto;">
     <form method="POST">{% csrf_token %}
         <!-- {% bootstrap_form form %} -->
         <h3>제목</h3>
         <p>{{form.title}}</p>
             {% for error in form.title.errors %} 
-                    <p> {{error}} </p>
+                    <p class="error"> {{error}} </p>
             {% endfor %}
     
         <h3>음식사진</h3>
@@ -24,10 +29,12 @@
         <h3>내용</h3>
         <p>{{form.content}}</p>
             {% for error in form.content.errors %} 
-                    <p> {{error}} </p>
+                <p class="error"> {{error}} </p>
             {% endfor %}
         <input type="submit" value="전송" class="btn btn-dark rounded-pill col-6 mt-2" >
     </form>
 </div>
 
 <a href={% url 'post-list' %}>돌아가기</a> <!-- form 전용 css를 따로 빼주지않았지만 뒤로가기 귀찮아서 임시생성 -->
+
+{% endblock form %}
