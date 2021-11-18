@@ -13,6 +13,6 @@
     </hr>
 
     <p>수정일 : {{post.modified_date|date:"Y M/d D"}}</p>
-
+    <a href={% url 'post-update' post.id %}> 수정하기 </a>
     <a href={% url 'post-list' %}>돌아가기</a> 
 {% endblock post_container %}
