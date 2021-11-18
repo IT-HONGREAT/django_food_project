@@ -56,3 +56,10 @@ def post_update(request, post_id):
 
     post_form = PostForm(instance=post)
     return render(request, 'posts/post_form.html', {'form': post_form})
+
+
+def post_delete(request, post_id):
+
+    post = Post.objects.get(id=post_id)
+    post.delete()
+    redirect('post-list')
