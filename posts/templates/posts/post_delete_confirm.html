@@ -1,0 +1,21 @@
+{% extends './base.html' %}
+
+{% block form %}
+    
+    <div>
+
+        <p> 삭제하려는 글의 제목 : {{post.title}} </p>
+
+        <p> 삭제하시겠습니까?</p>
+
+        <form method="POST">{% csrf_token %}
+            <li><input type="submit" value="삭제하기"></li>
+        </form>
+
+        <form method="GET">
+            <li><a href="{% url 'post-detail' post.id%}">남기기</a></li>
+
+        </form>
+
+    </div>
+{% endblock form %}
