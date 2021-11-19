@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'foods',
     'posts',
     'bootstrap4',
+    'django_seed',
 ]
 
 MIDDLEWARE = [
