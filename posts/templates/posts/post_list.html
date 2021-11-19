@@ -8,15 +8,22 @@
 
 {% block post_container %}
     <a href="{% url 'post-create' %} "> 먹은 것 기록하기!</a>
-    {% for  post in  posts%}
+    {% if posts %}
+        {% for  post in  posts%}
+            <div>
+
+                <h3 class="navbar_menu">제목 : <a href={% url 'post-detail' post.id %}>{{post.title}}</a></h3>
+                <h2 class="">먹은 날 : {{post.created_date|date:"Y M/d D"}}</h2>
+                <p class="">{{post.content|slice:"100"}}</p>
+            
+            </div>
+
+        {% endfor %}
+    {% else %}
         <div>
-
-            <h3 class="navbar_menu">제목 : <a href={% url 'post-detail' post.id %}>{{post.title}}</a></h3>
-            <h2 class="">먹은 날 : {{post.created_date|date:"Y M/d D"}}</h2>
-            <p class="">{{post.content|slice:"100"}}</p>
-        
+            <p> 작성된 글이 없습니다 </p>
         </div>
-
-    {% endfor %}
+    {% endif %}
+    
     
 {% endblock post_container %}

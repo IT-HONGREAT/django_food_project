@@ -1,6 +1,7 @@
 from posts.forms import PostForm
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, get_object_or_404
 from .models import Post
+from django.http import Http404
 # Create your views here.
 
 
@@ -14,8 +15,7 @@ def post_list(request):
 
 def post_detail(request, post_id):
 
-    context = dict()
-    post = Post.objects.get(id=post_id)
+    post = get_object_or_404(Post, id=post_id)
     context = {"post": post}
     return render(request, 'posts/post_detail.html', context)
 
@@ -43,7 +43,7 @@ def post_create(request):
 
 def post_update(request, post_id):
 
-    post = Post.objects.get(id=post_id)
+    post = get_object_or_404(Post, id=post_id)
 
     if request.method == 'POST':
         post_form = PostForm(request.POST, instance=post)
@@ -60,7 +60,7 @@ def post_update(request, post_id):
 
 def post_delete(request, post_id):
 
-    post = Post.objects.get(id=post_id)
+    post = get_object_or_404(Post, id=post_id)
     if request.method == 'POST':
         post.delete()
         return redirect('post-list')
