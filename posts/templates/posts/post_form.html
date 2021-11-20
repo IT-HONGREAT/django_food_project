@@ -18,9 +18,9 @@
             {% endfor %}
     
         <h3>음식사진</h3>
-        <table>
-            {{ form.food_img }}
-        </table>
+        <input type="file" name="food_img" accept="food_img/*">
+            <!-- {{ form.food_img }} -->
+        
 
         <h3>먹을 때 기분</h3>
         <p>{{form.feeling}}</p>

@@ -30,7 +30,7 @@ def post_create(request):
         #     content=content,
         # )
         # new_post.save()
-        post_form = PostForm(request.POST)
+        post_form = PostForm(request.POST, request.FILES)
         if post_form.is_valid():  # 유효성검증을 해주는 조건문
             new_post = post_form.save()
             return redirect('post-detail', post_id=new_post.id)
