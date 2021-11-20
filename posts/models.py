@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.validators import MinLengthValidator
+from django.db.models.fields.files import ImageField
 from .validators import validate_numbers
 # Create your models here.
 
@@ -9,7 +10,7 @@ from .validators import validate_numbers
 class Post(models.Model):
 
     title = models.CharField(max_length=100)
-    food_img = models.CharField(max_length=255)
+    food_img = models.ImageField(upload_to='food_img/')
     created_date = models.DateTimeField(auto_now_add=True)
     feeling = models.CharField(max_length=80, default='')
     score = models.IntegerField(default=0)

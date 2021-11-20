@@ -140,3 +140,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'  # 로컬수정
 # STATIC_ROOT = os.path.join(BASE_DIR,'static') #로컬X
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

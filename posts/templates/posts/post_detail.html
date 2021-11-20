@@ -8,6 +8,11 @@
 {% block post_container %}
     <h3>제목 : {{post.title}}</h3> 
     <div>작성일 : {{post.created_date|date:"Y M/d D"}}</div>
+    
+    <div>
+        <img src="{{post.food_img.url}}" width="30%" alt="이미지">
+    </div>
+    
     <hr>
     <div>내용 : {{post.content}}</div>
     </hr>
