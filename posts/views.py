@@ -2,15 +2,21 @@ from posts.forms import PostForm
 from django.shortcuts import redirect, render, get_object_or_404
 from .models import Post
 from django.http import Http404
+from django.core.paginator import Paginator
 # Create your views here.
 
 
 def post_list(request):
 
     posts = Post.objects.all()
-    context = {"posts": posts}
+    paginator = Paginator(posts, 8)
+    page_number = request.GET.get('page')
+    if page_number is None:
+        page_number = 1
+    page_obj = paginator.page(page_number)  # 페이지 번호에 해당하는 페이지를 가져옴
+    return render(request, 'posts/post_list.html', {'page_obj': page_obj})
 
-    return render(request, 'posts/post_list.html', context)
+    # return render(request, 'posts/post_list.html', context)
 
 
 def post_detail(request, post_id):
