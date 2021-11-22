@@ -9,14 +9,12 @@ from django.core.paginator import Paginator
 def post_list(request):
 
     posts = Post.objects.all()
-    paginator = Paginator(posts, 8)
-    page_number = request.GET.get('page')
-    if page_number is None:
-        page_number = 1
-    page_obj = paginator.page(page_number)  # 페이지 번호에 해당하는 페이지를 가져옴
-    return render(request, 'posts/post_list.html', {'page_obj': page_obj})
-
-    # return render(request, 'posts/post_list.html', context)
+    paginator = Paginator(posts, 6)
+    curr_page_number = request.GET.get('page')
+    if curr_page_number is None:
+        curr_page_number = 1
+    page = paginator.page(curr_page_number)  # 페이지 번호에 해당하는 페이지를 가져옴
+    return render(request, 'posts/post_list.html', {'page': page})
 
 
 def post_detail(request, post_id):
