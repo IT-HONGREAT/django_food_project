@@ -1,8 +1,9 @@
-from posts.forms import PostForm
 from django.shortcuts import redirect, render, get_object_or_404
-from .models import Post
 from django.http import Http404
 from django.core.paginator import Paginator
+from django.views import View
+from posts.forms import PostForm
+from .models import Post
 # Create your views here.
 
 
@@ -24,25 +25,16 @@ def post_detail(request, post_id):
     return render(request, 'posts/post_detail.html', context)
 
 
-def post_create(request):
-    # request를 통해서 들어온 것을 post인지 구분하게 해야함
-    if request.method == 'POST':
-        # title = request.POST['title'],
-        # content = request.POST['content'],
-        # new_post = Post(
-        #     title=title,
-        #     content=content,
-        # )
-        # new_post.save()
-        post_form = PostForm(request.POST, request.FILES)
+class PostCreatView(View):
+    def get(self, request):
+        post_form = PostForm
+        return render(request, 'posts/post_form.html', {'form': post_form})
+
+    def post(self, request):
+        post_form = PostForm(request.POST)
         if post_form.is_valid():  # 유효성검증을 해주는 조건문
             new_post = post_form.save()
             return redirect('post-detail', post_id=new_post.id)
-
-    # get방식 일 때, 폼을 돌려주는 원래 페이지로 줌
-    else:
-        post_form = PostForm
-    return render(request, 'posts/post_form.html', {'form': post_form})
 
 
 def post_update(request, post_id):
