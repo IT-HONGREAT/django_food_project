@@ -2,22 +2,21 @@ from django.conf.urls import url
 from django.shortcuts import redirect, render, get_object_or_404
 from django.http import Http404
 from django.core.paginator import Paginator
-from django.views.generic import CreateView
+from django.views.generic import CreateView, ListView
 from django.urls import reverse
 from posts.forms import PostForm
 from .models import Post
 # Create your views here.
 
 
-def post_list(request):
+class PostListView(ListView):
 
-    posts = Post.objects.all()
-    paginator = Paginator(posts, 6)
-    curr_page_number = request.GET.get('page')
-    if curr_page_number is None:
-        curr_page_number = 1
-    page = paginator.page(curr_page_number)  # 페이지 번호에 해당하는 페이지를 가져옴
-    return render(request, 'posts/post_list.html', {'page': page})
+    model = Post
+    template_name = 'posts/post_list.html'
+    context_object_name = 'posts'
+    ordering = ['-created_date']
+    paginate_by = 6
+    page_kwarg = 'page'
 
 
 def post_detail(request, post_id):
