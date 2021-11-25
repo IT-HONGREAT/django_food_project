@@ -13,6 +13,7 @@ from .models import Post
 # def index(request):
 #     return redirect('post-list')
 class IndexRedirectView(RedirectView):
+
     pattern_name = 'post-list'
 
 
