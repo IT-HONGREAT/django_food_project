@@ -58,8 +58,6 @@ INSTALLED_APPS = [
     'posts',
     'bootstrap4',
     'django_seed',
-    'django.contrib.admin',
-    'accountapp',
 ]
 
 MIDDLEWARE = [
@@ -147,4 +145,4 @@ MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-AUTH_USER_MODEL = 'accountapp.MyUser'
+AUTH_USER_MODEL = 'posts.User'

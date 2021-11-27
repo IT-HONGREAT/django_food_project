@@ -1,11 +1,14 @@
 from django.db import models
 from django.core.validators import MinLengthValidator
 from django.db.models.fields.files import ImageField
+from django.contrib.auth.models import AbstractUser
 from .validators import validate_numbers
 # Create your models here.
 
 
-# 단기적인 구상(수정_필요) : 음식이름, 음식 이미지, 음식에 대한 나의 의견?/기분?, 평점, 작성일(먹은 날짜가 아닐 수도 있음..), 수정일,
+class User(AbstractUser):
+    pass
+
 
 class Post(models.Model):
 
