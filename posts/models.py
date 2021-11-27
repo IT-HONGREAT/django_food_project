@@ -1,13 +1,8 @@
 from django.db import models
 from django.core.validators import MinLengthValidator
 from django.db.models.fields.files import ImageField
-from django.contrib.auth.models import AbstractUser
 from .validators import validate_numbers
 # Create your models here.
-
-
-class User(AbstractUser):
-    pass
 
 
 class Post(models.Model):

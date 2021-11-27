@@ -38,7 +38,7 @@ while True:
 SECRET_KEY = env_list['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = False #로컬x
+# DEBUG = False  # 로컬x
 DEBUG = True  # 로컬수정
 
 # ALLOWED_HOSTS = ['.pythonanywhere.com'] #로컬x
@@ -54,11 +54,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'foods',
     'posts',
     'bootstrap4',
     'django_seed',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -141,8 +147,27 @@ USE_TZ = True
 STATIC_URL = '/static/'  # 로컬수정
 # STATIC_ROOT = os.path.join(BASE_DIR,'static') #로컬X
 
+
+# media settings
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-AUTH_USER_MODEL = 'posts.User'
+
+# auth settings
+AUTH_USER_MODEL = 'foods.User'
+
+AUTHENTICATION_BACKENDS = [
+
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+ACCOUNT_SIGNUP_REDIRECT_URL = "index"
+LOGIN_REDIRECT_URL = "index"
+
+# email settings
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
