@@ -1,0 +1,11 @@
+
+<div> {{date}}</div>
+
+<navbar>
+    {% if user.is_authenticated %}
+      <a href="{% url 'account_logout'%}">LogOut</a>
+    {% else %}
+    <a href="{% url 'account_login'%}">LogIn</a>
+    <a href="{% url 'account_signup'%}">SignUp</a>
+    {% endif %}
+  </navbar>
