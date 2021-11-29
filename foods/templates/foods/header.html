@@ -4,7 +4,7 @@
 <navbar>
     {% if user.is_authenticated %}
       <a href="{% url 'account_logout'%}">LogOut</a>
-      <p>안녕하세요~ {{user}}님</p>
+      <p>안녕하세요~ {{user}}(닉네임 : {{user.nickname}})님</p>
     {% else %}
     <a href="{% url 'account_login'%}">LogIn</a>
     <a href="{% url 'account_signup'%}">SignUp</a>
