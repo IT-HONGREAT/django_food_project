@@ -184,6 +184,7 @@ SESSION_COOKIE_AGE = 3600  # 기간설정도 가능(default = 2week;단위는 se
 
 ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = "account_email_confiramation_done"
 ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = "account_email_confiramation_done"
+PASSWORD_RESET_TIMEOUT_DAYS = 3
 
 
 # email settings
