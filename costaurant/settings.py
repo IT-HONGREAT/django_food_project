@@ -182,6 +182,9 @@ ACCOUNT_PASSWORD_INPUT_RENDER_VALUE = True
 ACCOUNT_SESSION_REMEMBER = True  # 세션 쿠키 저장되게함
 SESSION_COOKIE_AGE = 3600  # 기간설정도 가능(default = 2week;단위는 sec)
 
+ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = "account_email_confiramation_done"
+ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = "account_email_confiramation_done"
+
 
 # email settings
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
