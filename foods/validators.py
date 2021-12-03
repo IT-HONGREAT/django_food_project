@@ -57,6 +57,6 @@ class CustomPasswordValidator:
         return "8자 이상 혹은 특수문자를 포함시켜 주세요."
 
 
-def valitaion_no_special_characters(value):
+def validate_no_special_characters(value):
     if contains_special_character(value):
         raise ValidationError("특수문자가 포함되어 있습니다. 특수문자를 제외시켜 주세요.")
