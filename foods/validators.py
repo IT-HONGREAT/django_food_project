@@ -60,3 +60,8 @@ class CustomPasswordValidator:
 def validate_no_special_characters(value):
     if contains_special_character(value):
         raise ValidationError("특수문자가 포함되어 있습니다. 특수문자를 제외시켜 주세요.")
+
+
+def validate_no_place_link(value):
+    if "place.naver.com" not in value and "place.map.kakao.com" not in value:
+        raise ValidationError("네이버/카카오 플레이스 url을 포함시켜줘야합니다")

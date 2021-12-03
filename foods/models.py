@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-from .validators import validate_no_special_characters
+from django.db.models.enums import IntegerChoices
+from django.db.models.fields import IntegerField
+from .validators import validate_no_special_characters, validate_no_place_link
 # Create your models here.
 
 
@@ -34,4 +36,22 @@ class Menu(models.Model):
 class Review(models.Model):
     title = models.CharField(max_length=30)
     name = models.CharField(max_length=20)
-    info_link = models.URLField()  # 네이버, 카카오 링크 연결
+    place_link = models.URLField(
+        validators=[validate_no_place_link])  # 네이버, 카카오 링크 연결
+
+    rating_choice = [
+        (1, 1),
+        (2, 2),
+        (3, 3),
+        (4, 4),
+        (5, 5),
+    ]
+    rating = models.IntegerField(choices=rating_choice)
+
+    image_1 = models.ImageField()
+    content = models.TextField()
+    created_date = models.DateTimeField(auto_now_add=True)
+    modified_date = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.title
