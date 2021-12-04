@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.db.models.enums import IntegerChoices
 from django.db.models.fields import IntegerField
+from django.db.models.fields.files import ImageField
 from .validators import validate_no_special_characters, validate_no_place_link
 # Create your models here.
 
@@ -48,7 +49,9 @@ class Review(models.Model):
     ]
     rating = models.IntegerField(choices=rating_choice)
 
-    image_1 = models.ImageField()
+    image_1 = models.ImageField(upload_to='food_img/')
+    image_2 = models.ImageField(upload_to='food_img/', blank=True)
+    image_3 = models.ImageField(upload_to='food_img/', blank=True)
     content = models.TextField()
     created_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)
