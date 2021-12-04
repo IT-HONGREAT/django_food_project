@@ -9,13 +9,13 @@
 </head>
 <body>
 <div class="food-detail">
-  <h2>{{menu.name}}</h2>
+  <h2>{{reviews.name}}</h2>
 
-<img src={% get_static_prefix %}{{menu.img_path}} />
+<img src="{{reviews.food_img.url}}" alt="이미지" />
 
-<div>{{menu.calorie}} kcal</div>
-<p>{{menu.description}}</p>
+<div>{{review.name}}</div>
+<p>{{review.content}}</p>
 
-<a href="/foods/menu/">돌아가기</a>
+<!-- <a href="/foods/menu/">돌아가기</a> -->
 </body>
 </html>

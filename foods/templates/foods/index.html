@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block food-container %}
-    {%for menu in menus %}
+    <!-- {%for menu in menus %}
 
     <div class="food">
       <img src= {% get_static_prefix %}{{menu.img_path}} width="300px" height="200px"/>
@@ -14,6 +14,23 @@
       </div>
     </div>
 
+    {% endfor %} -->
+
+    {% for review in reviews %}
+    <div class="food">
+      <h3>제목 : {{review.title}}</h3>
+      <h2>이름 : {{review.name}}</h2>
+      <p>장소 : {{review.place_link}}</p>
+      <p>평점 : {{review.rating}}</p>    
+      <div>
+        <img src="{{review.food_img.url}}" alt="이미지">
+      </div>
+      <div>
+        {{review.content}}
+      </div>
+      <a href="{{review.id}}">자세히 보기</a>
+    </div>  
     {% endfor %}
+
     
 {% endblock food-container %}
