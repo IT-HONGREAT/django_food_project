@@ -11,10 +11,10 @@
 <!-- <div class="food-detail"> -->
   <h2>{{review.name}}</h2>
 
-<img src="{{review.food_img.url}}" alt="이미지" />
+<img src="{{review.image_1.url}}" width=30% alt="이미지" />
 
 <p>{{review.content}}</p>
 
-<!-- <a href="/foods/menu/">돌아가기</a> -->
+<a href={% url 'food-index' %}>돌아가기</a>
 </body>
 </html>
