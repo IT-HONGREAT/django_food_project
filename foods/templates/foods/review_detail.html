@@ -8,12 +8,11 @@
   <link rel="stylesheet" href={% static "foods/css/styles_detail.css"%}>
 </head>
 <body>
-<div class="food-detail">
-  <h2>{{reviews.name}}</h2>
+<!-- <div class="food-detail"> -->
+  <h2>{{review.name}}</h2>
 
-<img src="{{reviews.food_img.url}}" alt="이미지" />
+<img src="{{review.food_img.url}}" alt="이미지" />
 
-<div>{{review.name}}</div>
 <p>{{review.content}}</p>
 
 <!-- <a href="/foods/menu/">돌아가기</a> -->

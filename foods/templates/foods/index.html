@@ -28,7 +28,7 @@
       <div>
         {{review.content}}
       </div>
-      <a href="{{review.id}}">자세히 보기</a>
+      <a href={% url 'review-detail' review.id %}>자세히 보기</a>
     </div>  
     {% endfor %}
 
