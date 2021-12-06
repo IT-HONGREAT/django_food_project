@@ -2,8 +2,7 @@
 {% load static %}
 
 {% block food-container %}
-  {% if reviews %}
-    {% for review in reviews %}
+  {% for review in reviews %}
     <div class="food">
       <h3>제목 : {{review.title}}</h3>
       <h2>이름 : {{review.name}}</h2>
@@ -17,13 +16,12 @@
       </div>
       <a href={% url 'review-detail' review.id %}>자세히 보기</a>
     </div>  
-    {% endfor %}
-  {% else %}  
-    <div>
-      <p> 작성된 글이 없습니다 </p>
-    </div>
-    
-  {% endif %}
+  
+    {% empty %}  
+      <div>
+        <p> 작성된 글이 없습니다 </p>
+      </div>
+    {% endfor %}  
 
     
 {% endblock food-container %}
