@@ -2,20 +2,7 @@
 {% load static %}
 
 {% block food-container %}
-    <!-- {%for menu in menus %}
-
-    <div class="food">
-      <img src= {% get_static_prefix %}{{menu.img_path}} width="300px" height="200px"/>
-      <div class="info">
-        <h3>{{menu.name}}</h3>
-        <P>{{menu.calorie}} kcal</p>
-        <P>{{menu.description}}</p>
-        <a href="{{menu.id}}">메뉴 보기</a>
-      </div>
-    </div>
-
-    {% endfor %} -->
-
+  {% if reviews %}
     {% for review in reviews %}
     <div class="food">
       <h3>제목 : {{review.title}}</h3>
@@ -31,6 +18,12 @@
       <a href={% url 'review-detail' review.id %}>자세히 보기</a>
     </div>  
     {% endfor %}
+  {% else %}  
+    <div>
+      <p> 작성된 글이 없습니다 </p>
+    </div>
+    
+  {% endif %}
 
     
 {% endblock food-container %}

@@ -1,0 +1,36 @@
+[
+{
+  "model": "foods.review",
+  "pk": 1,
+  "fields": {
+    "title": "리뷰기능테스트",
+    "name": "음식리뷰1",
+    "place_link": "https://place.map.kakao.com/133131312",
+    "rating": 4,
+    "image_1": "food_img/카카오뱅크통장사본_fywWnpg.png",
+    "image_2": "",
+    "image_3": "",
+    "content": "리뷰기능테스트업로드",
+    "created_date": "2021-12-04T06:35:06.945Z",
+    "modified_date": "2021-12-04T06:35:17.673Z",
+    "author": 1
+  }
+},
+{
+  "model": "foods.review",
+  "pk": 2,
+  "fields": {
+    "title": "리뷰테스트",
+    "name": "디테일테스트",
+    "place_link": "http://place.map.kakao.com/123123123323213123",
+    "rating": 3,
+    "image_1": "food_img/카카오뱅크통장사본_r8CDA43.png",
+    "image_2": "",
+    "image_3": "",
+    "content": "이미믿리밑ㅇ셀르르르",
+    "created_date": "2021-12-05T11:03:40.599Z",
+    "modified_date": "2021-12-05T11:03:40.599Z",
+    "author": 1
+  }
+}
+]

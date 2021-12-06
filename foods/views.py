@@ -10,26 +10,15 @@ from foods.models import Menu, Review
 # Create your views here.
 
 
-def index(request):
-    context = dict()
-    today = datetime.today().date()
-    # menus = Menu.objects.all()
-    reviews = Review.objects.all()
-
-    context["date"] = today
-    # context["menus"] = menus
-    context["reviews"] = reviews
-    return render(request, 'foods/index.html', context=context)
+class IndexView(ListView):
+    model = Review
+    ordering = ['-created_date']
+    context_object_name = "reviews"
+    paginated_by = 10
 
 
 class FoodsDetailView(DetailView):
     model = Review
-
-# def food_detail(request, pk):
-#     context = dict()
-#     menu = Menu.objects.get(id=pk)
-#     context["menu"] = menu
-#     return render(request, 'posts/detail.html', context=context)
 
 
 class CustomPasswordChangeView(PasswordChangeView):
