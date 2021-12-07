@@ -1,3 +1,4 @@
+from foods.forms import Reviewform
 from django.http.response import HttpResponse
 from django.shortcuts import render
 from django.http import HttpResponse, Http404
@@ -17,8 +18,14 @@ class IndexView(ListView):
     paginated_by = 10
 
 
-class FoodsDetailView(DetailView):
+class ReviewDetailView(DetailView):
     model = Review
+
+
+class ReviewCreateView(CreateView):
+    model = Review
+    form_class = Reviewform
+    template_name = 'foods/review_form.html'
 
 
 class CustomPasswordChangeView(PasswordChangeView):

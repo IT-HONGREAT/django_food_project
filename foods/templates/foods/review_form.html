@@ -1,0 +1,17 @@
+
+<form method = "POST" , enctype="multipart/form-data">
+{% csrf_token %}
+
+
+
+<h3>제목 : {{form.title}}</h3>
+<h2>이름 : {{form.name}}</h2>
+<p>장소 : {{form.place_link}}</p>
+<p>평점 :  {{form.rating}}</p>
+<p>{{form.image_1}}</p>
+<p>{{form.image_2}}</p>
+<p>{{form.image_3}}</p> 
+
+
+
+</form>
