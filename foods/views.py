@@ -28,6 +28,14 @@ class ReviewCreateView(CreateView):
     template_name = 'foods/review_form.html'
 
 
+class ReviewUpdateView(UpdateView):
+    model = Review
+    form_class = Reviewform
+
+    def get_success_url(self):
+        return reverse('review-detail', kwargs={'pk': self.object.id})
+
+
 class CustomPasswordChangeView(PasswordChangeView):
     def get_success_url(self):
         return reverse('index')
