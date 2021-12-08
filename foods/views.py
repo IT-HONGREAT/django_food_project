@@ -36,6 +36,13 @@ class ReviewUpdateView(UpdateView):
         return reverse('review-detail', kwargs={'pk': self.object.id})
 
 
+class ReviewDeleteView(DeleteView):
+    model = Review
+
+    def get_success_url(self):
+        return reverse('review-list')
+
+
 class CustomPasswordChangeView(PasswordChangeView):
     def get_success_url(self):
         return reverse('index')
