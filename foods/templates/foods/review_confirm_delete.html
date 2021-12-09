@@ -1,0 +1,16 @@
+<div>
+
+    <p> 삭제하려는 글의 제목 : {{review.title}} </p>
+
+    <p> 삭제하시겠습니까?</p>
+
+    <form method="POST">{% csrf_token %}
+        <li><input type="submit" value="삭제하기"></li>
+    </form>
+
+    <form method="GET">
+        <li><a href="{% url 'review-detail' review.id%}">남기기</a></li>
+
+    </form>
+
+</div>
