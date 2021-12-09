@@ -27,6 +27,13 @@ class ReviewCreateView(CreateView):
     form_class = Reviewform
     template_name = 'foods/review_form.html'
 
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse('review-detail', kwargs={'pk': self.object.id})
+
 
 class ReviewUpdateView(UpdateView):
     model = Review
