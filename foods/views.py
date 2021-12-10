@@ -7,6 +7,7 @@ from django.views.generic import CreateView, ListView, DetailView, UpdateView, D
 from datetime import datetime
 from allauth.account.views import PasswordChangeView
 from foods.models import Menu, Review
+from braces.views import LoginRequiredMixin
 
 # Create your views here.
 
@@ -22,7 +23,7 @@ class ReviewDetailView(DetailView):
     model = Review
 
 
-class ReviewCreateView(CreateView):
+class ReviewCreateView(LoginRequiredMixin, CreateView):
     model = Review
     form_class = Reviewform
     template_name = 'foods/review_form.html'
