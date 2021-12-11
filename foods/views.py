@@ -6,6 +6,7 @@ from django.urls import reverse
 from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView, RedirectView
 from datetime import datetime
 from allauth.account.views import PasswordChangeView
+from allauth.account.models import EmailAddress
 from foods.models import Menu, Review
 from braces.views import LoginRequiredMixin
 
@@ -34,6 +35,9 @@ class ReviewCreateView(LoginRequiredMixin, CreateView):
 
     def get_success_url(self):
         return reverse('review-detail', kwargs={'pk': self.object.id})
+
+    def test_func(self, user):
+        return EmailAddress.objects.filter(user=user, verified=True).exists()
 
 
 class ReviewUpdateView(UpdateView):

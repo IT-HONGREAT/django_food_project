@@ -27,8 +27,10 @@ urlpatterns = [
     path('password/change/', CustomPasswordChangeView.as_view(),
          name='account_password_change'),
     path('', include('allauth.urls')),
+    path("email-confirmation-required/", TemplateView.as_view(
+        template_name='account/email_confirmation_required.html'), name='account_email_confirmation_required'),
     path("email-confirmation-done/", TemplateView.as_view(
-        template_name='foods/email_confirmation_done.html'), name='account_email_confirmation_done'),
+        template_name='account/email_confirmation_done.html'), name='account_email_confirmation_done'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
