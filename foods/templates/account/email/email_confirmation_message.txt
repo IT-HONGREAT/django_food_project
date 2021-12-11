@@ -1,0 +1,8 @@
+
+confirmation test
+
+{{user}}님.
+
+이메일 인증을 완료 해주세요 => {{ activate_url}}
+
+test
