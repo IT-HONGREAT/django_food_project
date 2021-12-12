@@ -10,7 +10,7 @@ from allauth.account.models import EmailAddress
 from foods.models import Menu, Review
 from braces.views import LoginRequiredMixin, UserPassesTestMixin
 from foods.functions import confirmation_required_redirect
-# from django.contrib.auth.mixins import UserPassesTestMixin
+
 # Create your views here.
 
 
