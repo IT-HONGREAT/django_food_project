@@ -2,13 +2,15 @@
 <div> {{date}}</div>
 
 <navbar>
+<div class="navbar">
     {% if user.is_authenticated %}
       <a href="{% url 'account_logout'%}">LogOut</a>
       <p>안녕하세요~ {{user}}(닉네임 : {{user.nickname}})님</p>
       <p><a href="{% url 'account_change_password' %}">비밀번호 변경</a></p>
     {% else %}
-    <a href="{% url 'account_login'%}">LogIn</a>
-    <a href="{% url 'account_signup'%}">SignUp</a>
-    <p>로그아웃 상태입니다.</p>
+    <li><a href="{% url 'account_login'%}">LogIn</a></li>
+    <li><a href="{% url 'account_signup'%}">SignUp</a></li>
+    <li><p>로그아웃 상태입니다.</p></li>
     {% endif %}
-  </navbar>
+</div>
+</navbar>

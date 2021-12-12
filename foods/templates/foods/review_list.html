@@ -2,7 +2,13 @@
 {% load static %}
 
 {% block food-container %}
-<a href="{% url 'review-create' %} "> 리뷰작성하기!</a>
+
+
+<h1>Food Info</h1>
+
+<div class="food-container">
+
+<h3><a href="{% url 'review-create' %} "> 리뷰작성하기!</a></h3>
   {% for review in reviews %}
     <div class="food">
       <h3>제목 : {{review.title}}</h3>
@@ -24,5 +30,5 @@
       </div>
     {% endfor %}  
 
-    
+</div>   
 {% endblock food-container %}
