@@ -76,8 +76,20 @@ h2 {
 }
 
 .navbar {
-  display: flex;
-  margin: 0;
-  padding: 0;
-  list-style: none;
+  background-color: white;
+  width: 30rempx;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 50px;
+  float: center;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.navbar {
+  color: #58595b;
+  font-size: 1.5rem;
+  font-family: Jua;
+  text-align: right;
 }

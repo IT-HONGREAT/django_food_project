@@ -8,13 +8,12 @@
   <link rel="stylesheet" href={% static "foods/css/styles.css"%}>
 </head>
 <body>
-  <div>
-  {% include 'foods_base/header.html' %}     
 
+  {% block header %}{% endblock header %}
   
-  {% block food-container %}
-  {% endblock food-container %}
-  
+  {% block food-container %}{% endblock food-container %}
+
+  {% block content %}{% endblock content %}
 
 </body>
 </html>

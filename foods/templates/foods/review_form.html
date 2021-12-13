@@ -1,4 +1,6 @@
+{% extends 'foods_base/header.html' %}
 
+{% block content %}
 <form method = "POST" , enctype="multipart/form-data">
 {% csrf_token %}
 
@@ -16,3 +18,4 @@
 <input type="submit" value="전송">
 
 </form>
+{% endblock content %}
