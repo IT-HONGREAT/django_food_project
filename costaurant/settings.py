@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'posts',
     'bootstrap4',
     'django_seed',
+    'widget_tweaks',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
