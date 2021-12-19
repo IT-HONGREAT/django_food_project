@@ -26,6 +26,7 @@ urlpatterns = [
     path('', include('posts.urls')),
     path('password/change/', CustomPasswordChangeView.as_view(),
          name='account_password_change'),
+    # all auth
     path('', include('allauth.urls')),
     path("email-confirmation-required/", TemplateView.as_view(
         template_name='account/email_confirmation_required.html'), name='account_email_confirmation_required'),

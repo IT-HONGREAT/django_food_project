@@ -44,19 +44,31 @@ class ReviewCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
         return EmailAddress.objects.filter(user=user, verified=True).exists()
 
 
-class ReviewUpdateView(UpdateView):
+class ReviewUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Review
     form_class = Reviewform
+
+    raise_exception = True
 
     def get_success_url(self):
         return reverse('review-detail', kwargs={'pk': self.object.id})
 
+    def test_func(self, user):
+        review = self.get_object()
+        return review.author == user
 
-class ReviewDeleteView(DeleteView):
+
+class ReviewDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Review
+
+    raise_exception = True
 
     def get_success_url(self):
         return reverse('review-list')
+
+    def test_func(self, user):
+        review = self.get_object()
+        return review.author == user
 
 
 class CustomPasswordChangeView(PasswordChangeView):
