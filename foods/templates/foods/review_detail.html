@@ -10,12 +10,19 @@
   <link rel="stylesheet" href={% static "foods/css/styles_detail.css"%}>
 </head>
 <body>
+  <!-- 게시 내용 -->
   <div class="food-detail">
     <h2>{{review.name}}</h2>
 
     <img src="{{review.image_1.url}}" width=30% alt="이미지" />
     <p>{{review.content}}</p>
 
+    <div style="background-image: url('{{ review.author.profile_img.url}}')">이미지?</div>
+
+    <span>{{ review.author.nickname }}닉네임</span>
+
+
+    <!-- 타 페이지 이동 -->
     <a href={{review.place_link}}>
       <span>위치보기</span>
     </a>

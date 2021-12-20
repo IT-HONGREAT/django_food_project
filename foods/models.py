@@ -16,6 +16,11 @@ class User(AbstractUser):
                                 validators=[validate_no_special_characters],
                                 )
 
+    profile_img = models.ImageField(
+        default="default_profile_img", upload_to="profile_img")
+
+    intro = models.CharField(max_length=60, blank=True)
+
     def __str__(self):
         return self.email
 

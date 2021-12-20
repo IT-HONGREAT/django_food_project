@@ -1,6 +1,6 @@
 @font-face {
   src: url("../fonts/BMJUA_ttf.ttf");
-  font-family : Jua;
+  font-family: Jua;
 }
 * {
   box-sizing: border-box;
@@ -8,13 +8,13 @@
 }
 
 body {
-  background-color : #f19143;
+  background-color: #f19143;
 }
 
 h2 {
-  font-size:3rem;
-  color: #FAD014;
-  text-align:center
+  font-size: 3rem;
+  color: #fad014;
+  text-align: center;
 }
 
 .header h3 {
@@ -23,7 +23,7 @@ h2 {
 }
 
 .food-detail {
-  width:660px;
+  width: 660px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -36,30 +36,27 @@ h2 {
 .food-detail p {
   color: #58595b;
   font-size: 2rem;
-  text-align:left;
+  text-align: left;
 }
 
 .food-detail img {
-    display: block;
-    
-    width: 300px;
-    height: 200px;
-    margin-left:auto;
-    margin-right:auto;
+  display: block;
 
-
+  width: 300px;
+  height: 200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .food-detail a {
-  color: #0000ee;;
+  color: #0000ee;
   font-size: 16px;
   text-decoration: none;
   border: #0000ee 2px solid;
   padding: 5px;
   display: inline-block;
-  margin-left:auto;
-  margin-right:auto;
-  
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .food-detail div {
@@ -67,5 +64,3 @@ h2 {
   font-size: 2rem;
   text-align: left;
 }
-
-
