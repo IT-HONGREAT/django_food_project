@@ -59,8 +59,12 @@ h2 {
   margin-right: auto;
 }
 
-.food-detail div {
-  color: #58595b;
-  font-size: 2rem;
-  text-align: left;
+.review-author {
+  display: block;
+  align-items: center;
+  font-size: 15px;
+  height: 15rem;
+  width: 3rem;
+  margin-left: auto;
+  margin-right: auto;
 }

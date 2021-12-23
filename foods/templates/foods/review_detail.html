@@ -17,7 +17,9 @@
     <img src="{{review.image_1.url}}" width=30% alt="이미지" />
     <p>{{review.content}}</p>
 
-    <div style="background-image: url('{{ review.author.profile_img.url}}')">이미지?</div>
+    <div class="review-author">
+      <img src="{{review.author.profile_img.url}}" width=30% alt="이미지" />
+    </div>
 
     <span>{{ review.author.nickname }}닉네임</span>
 
