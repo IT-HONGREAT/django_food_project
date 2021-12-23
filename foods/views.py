@@ -7,7 +7,7 @@ from django.views.generic import CreateView, ListView, DetailView, UpdateView, D
 from datetime import datetime
 from allauth.account.views import PasswordChangeView
 from allauth.account.models import EmailAddress
-from foods.models import Menu, Review
+from foods.models import Menu, Review, User
 from braces.views import LoginRequiredMixin, UserPassesTestMixin
 from foods.functions import confirmation_required_redirect
 
@@ -69,6 +69,21 @@ class ReviewDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     def test_func(self, user):
         review = self.get_object()
         return review.author == user
+
+
+class ProfileView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
+
+    model = User
+    template_name = 'foods/profile.html'
+    pk_url_kwarg = "pk"
+    context_object_name = "profile_user"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user_id = self.kwargs.get("user_id")
+        context["user_reviews"] = Review.objects.filter(
+            author_id=user_id).order_by("-created_date")
+        return context
 
 
 class CustomPasswordChangeView(PasswordChangeView):

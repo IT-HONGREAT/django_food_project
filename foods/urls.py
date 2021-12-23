@@ -10,4 +10,6 @@ urlpatterns = [
          views.ReviewUpdateView.as_view(), name='review-update'),
     path('foods/<int:pk>/delete',
          views.ReviewDeleteView.as_view(), name='review-delete'),
+    path('users/<int:pk>',
+         views.ProfileView.as_view(), name='profile'),
 ]
