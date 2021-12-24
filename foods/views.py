@@ -71,7 +71,7 @@ class ReviewDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         return review.author == user
 
 
-class ProfileView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
+class ProfileView(DetailView):
 
     model = User
     template_name = 'foods/profile.html'
@@ -80,7 +80,7 @@ class ProfileView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        user_id = self.kwargs.get("user_id")
+        user_id = self.kwargs.get("")
         context["user_reviews"] = Review.objects.filter(
             author_id=user_id).order_by("-created_date")
         return context

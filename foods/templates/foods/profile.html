@@ -1,0 +1,11 @@
+{% extends 'foods_base/header.html' %} {% load static %} {% block content %}
+
+<div>
+  <div>
+    <img src="{{profile_user.profile_img.url}}" width="30%" alt="이미지" />
+  </div>
+  <h1>{{profile_user.nickname}} 의 리뷰들</h1>
+  <p>{{profile_user.intro}}</p>
+</div>
+
+{% endblock content %}

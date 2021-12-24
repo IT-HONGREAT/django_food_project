@@ -17,12 +17,13 @@
     <img src="{{review.image_1.url}}" width=30% alt="이미지" />
     <p>{{review.content}}</p>
 
-    <div class="review-author">
-      <img src="{{review.author.profile_img.url}}" width=30% alt="이미지" />
-    </div>
+    <a href="{% url 'profile' review.author.id %}">
+      <div class="review-author">
+        <img src="{{review.author.profile_img.url}}" width=30% alt="이미지" />
+      </div>
 
-    <span>{{ review.author.nickname }}닉네임</span>
-
+      <p>{{ review.author.nickname }}닉네임</p>
+    </a>
 
     <!-- 타 페이지 이동 -->
     <a href={{review.place_link}}>
