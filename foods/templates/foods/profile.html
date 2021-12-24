@@ -8,4 +8,47 @@
   <p>{{profile_user.intro}}</p>
 </div>
 
+{% for review in user_reviews %}
+<!-- <a href="{% url 'review-detail' review.id %}">
+  <img src="{{review.image_1.url}}" width="100%" alt="이미지" />
+  <div>
+    <span>{{ review.name}}</span>
+    <h2>{{ review.title }}</h2>
+    <date>{{ review.created_date|date:"Y년 n월 j일" }}</date>
+    <div class="metadata">
+      <div>
+        <span> {% for i in ""|ljust:review.rating %}★{% endfor %} </span>
+      </div>
+      <div>
+        <img src="{{profile_user.profile_img.url}}" width="30%" alt="이미지" />
+        <span>{{ review.author.nickname }}</span>
+      </div>
+    </div>
+  </div>
+</a> -->
+<div class="food">
+    <h3>제목 : {{review.title}}</h3>
+    <h2>이름 : {{review.name}}</h2>
+    <p>장소 : {{review.place_link}}</p>
+    <p>평점 : {{review.rating}}</p>   
+    <div>
+      <img src="{{review.image_1.url}}" width=100% alt="이미지">
+    </div>
+    <div>
+      {{review.content}}
+    </div>
+    <a href={% url 'review-detail' review.id %}>자세히 보기</a>
+  </div>  
+
+  {% empty %}  
+    <div>
+      <p> 작성된 글이 없습니다 </p>
+    </div>
+
+
+
+{% endfor %}
+<div>
+  <a href={% url 'review-list' %}>홈으로</a>
+</div>
 {% endblock content %}

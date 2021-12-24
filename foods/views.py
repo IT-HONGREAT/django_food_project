@@ -80,7 +80,7 @@ class ProfileView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        user_id = self.kwargs.get("")
+        user_id = self.kwargs.get("pk")
         context["user_reviews"] = Review.objects.filter(
             author_id=user_id).order_by("-created_date")
         return context
