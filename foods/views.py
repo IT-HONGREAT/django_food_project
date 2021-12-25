@@ -86,6 +86,17 @@ class ProfileView(DetailView):
         return context
 
 
+class UserReviewListView(ListView):
+    model = Review
+    template_name = "foods/user_review_list.html"
+    context_object_name = "user_reviews"
+    paginate_by = 4
+
+    def get_queryset(self):
+        user_id = self.kwargs.get("pk")
+        return Review.objects.filter(author_id=user_id).order_by("-created_date")
+
+
 class CustomPasswordChangeView(PasswordChangeView):
     def get_success_url(self):
         return reverse('index')

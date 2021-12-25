@@ -12,4 +12,6 @@ urlpatterns = [
          views.ReviewDeleteView.as_view(), name='review-delete'),
     path('users/<int:pk>',
          views.ProfileView.as_view(), name='profile'),
+    path('users/<int:pk>/reviews/',
+         views.UserReviewListView.as_view(), name='user-review-list'),
 ]

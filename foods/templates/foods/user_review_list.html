@@ -1,14 +1,6 @@
 {% extends 'foods_base/header.html' %} {% load static %} {% block content %}
 
-<div>
-  <div>
-    <img src="{{profile_user.profile_img.url}}" width="30%" alt="이미지" />
-  </div>
-  <h1>{{profile_user.nickname}} 의 리뷰들</h1>
-  <p>{{profile_user.intro}}</p>
-  <a href="{% url 'user-review-list' profile_user.id %}">리뷰 전체보기</a>
 
-</div>
 
 {% for review in user_reviews %}
 <div class="food">
@@ -33,7 +25,5 @@
 
 
 {% endfor %}
-<div>
-  <a href={% url 'review-list' %}>홈으로</a>
-</div>
+
 {% endblock content %}
