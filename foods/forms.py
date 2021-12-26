@@ -1,5 +1,7 @@
 from django import forms
+from django.forms import widgets
 from .models import Review, User
+from foods import models
 
 
 class Signupform(forms.ModelForm):
@@ -26,3 +28,16 @@ class Reviewform(forms.ModelForm):
             "image_3",
             "content",
         ]
+
+
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = [
+            "nickname",
+            "profile_img",
+            "intro",
+        ]
+        widgets = {
+            "intro": forms.Textarea,
+        }

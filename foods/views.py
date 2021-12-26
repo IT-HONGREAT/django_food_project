@@ -104,6 +104,19 @@ class UserReviewListView(ListView):
         return context
 
 
+class ProfileSetView(UpdateView):
+
+    model = User
+    form_class = ProfileForm
+    template_name = "foods/profile_set_form.html"
+
+    def get_object(self, queryset=None):
+        return self.request.user
+
+    def get_success_url(self):
+        return reverse("index")
+
+
 class CustomPasswordChangeView(PasswordChangeView):
     def get_success_url(self):
         return reverse('index')
