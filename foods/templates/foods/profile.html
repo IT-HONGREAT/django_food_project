@@ -6,8 +6,12 @@
   </div>
   <h1>{{profile_user.nickname}} 의 리뷰들</h1>
   <p>{{profile_user.intro}}</p>
-  <a href="{% url 'user-review-list' profile_user.id %}">리뷰 전체보기</a>
 
+  {% if user_reviews %}
+  <h2>
+    <a href="{% url 'user-review-list' profile_user.id %}">리뷰 전체보기</a>
+  </h2>
+  {% endif %}
 </div>
 
 {% for review in user_reviews %}

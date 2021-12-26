@@ -1,6 +1,6 @@
 from foods.forms import Reviewform
 from django.http.response import HttpResponse
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.http import HttpResponse, Http404
 from django.urls import reverse
 from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView, RedirectView
@@ -95,6 +95,13 @@ class UserReviewListView(ListView):
     def get_queryset(self):
         user_id = self.kwargs.get("pk")
         return Review.objects.filter(author_id=user_id).order_by("-created_date")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        context["profile_user"] = get_object_or_404(
+            User, id=self.kwargs.get("pk"))
+        return context
 
 
 class CustomPasswordChangeView(PasswordChangeView):
