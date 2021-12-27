@@ -4,15 +4,15 @@ from .models import Review, User
 from foods import models
 
 
-class Signupform(forms.ModelForm):
-    class Meta:
-        model = User
-        fields = ["nickname"]
+# class Signupform(forms.ModelForm):
+#     class Meta:
+#         model = User
+#         fields = ["nickname"]
 
-    def signup(self, request, user):
+#     def signup(self, request, user):
 
-        user.nickname = self.cleaned_data["nickname"]
-        user.save()
+#         user.nickname = self.cleaned_data["nickname"]
+#         user.save()
 
 
 class Reviewform(forms.ModelForm):

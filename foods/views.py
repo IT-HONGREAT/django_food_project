@@ -1,4 +1,4 @@
-from foods.forms import Reviewform
+from foods.forms import Reviewform, ProfileForm
 from django.http.response import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.http import HttpResponse, Http404
@@ -10,6 +10,7 @@ from allauth.account.models import EmailAddress
 from foods.models import Menu, Review, User
 from braces.views import LoginRequiredMixin, UserPassesTestMixin
 from foods.functions import confirmation_required_redirect
+
 
 # Create your views here.
 
@@ -72,7 +73,6 @@ class ReviewDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 
 class ProfileView(DetailView):
-
     model = User
     template_name = 'foods/profile.html'
     pk_url_kwarg = "pk"
@@ -105,7 +105,6 @@ class UserReviewListView(ListView):
 
 
 class ProfileSetView(UpdateView):
-
     model = User
     form_class = ProfileForm
     template_name = "foods/profile_set_form.html"
