@@ -3,30 +3,34 @@
 {% load widget_tweaks %}
 
 {% block title %} LogIn | Foods {% endblock title %}
+
 {% block content %}
 
-<a href="{% url 'index' %}">홈으로 이동</a>
 
-<form method="post">
-    {% csrf_token %}
-    {% for error in form.non_field_errors %}
-            <div>{{error}}</div>
-    {% endfor %}
+    <a href="{% url 'index' %}">홈으로 이동</a>
 
-        <div>
-            {{ form.login|attr:"placeholder:이메일을 입력하세요" }}
-        </div>
-
-        <div>
-            {{ form.password}}
-
-        </div>
+    <form method="post">
+        {% csrf_token %}
         
-        <button type="submit">로그인</button>
-</form>
+        {% for error in form.non_field_errors %}
+            <div>{{error}}</div>
+        {% endfor %}
 
-<div>
-    <a href="{% url 'account_reset_password' %}">비밀번호 재설정</a>
-    <a href="{% url 'account_signup' %}">회원가입</a>
-</div>
+            <div>
+                {{ form.login|attr:"placeholder:이메일을 입력하세요" }}
+            </div>
+
+            <div>
+                {{ form.password}}
+            </div>
+            
+            <button type="submit">로그인</button>
+    </form>
+
+    <div>
+        <a href="{% url 'account_reset_password' %}">비밀번호 재설정</a>
+        <a href="{% url 'account_signup' %}">회원가입</a>
+    </div>
+
+
 {% endblock content %}

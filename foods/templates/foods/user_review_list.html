@@ -1,49 +1,55 @@
-{% extends 'foods_base/header.html' %} {% load static %} {% block content %}
+{% extends 'foods_base/header.html' %} 
+
+{% load static %} 
+
+{% block content %}
 
 
-<h2>{{ profile_user.nickname }}님의 리뷰/ 총 {{ paginator.count }} 개의 리뷰가 작성되었습니다</h2>
+  <h2>{{ profile_user.nickname }}님의 리뷰/ 총 {{ paginator.count }} 개의 리뷰가 작성되었습니다</h2>
 
-{% for review in user_reviews %}
-<div class="food">
-    <h3>제목 : {{review.title}}</h3>
-    <h2>이름 : {{review.name}}</h2>
-    <p>장소 : {{review.place_link}}</p>
-    <p>평점 : {{review.rating}}</p>   
-    <div>
-      <img src="{{review.image_1.url}}" width=100% alt="이미지">
-    </div>
-    <div>
-      {{review.content}}
-    </div>
-    <a href={% url 'review-detail' review.id %}>자세히 보기</a>
-  </div>  
+  {% for review in user_reviews %}
+    <div class="food">
+        <h3>제목 : {{review.title}}</h3>
+        <h2>이름 : {{review.name}}</h2>
+        <p>장소 : {{review.place_link}}</p>
+        <p>평점 : {{review.rating}}</p>   
+
+        <div>
+          <img src="{{review.image_1.url}}" width=100% alt="이미지">
+        </div>
+
+        <div>
+          {{review.content}}
+        </div>
+
+        <a href={% url 'review-detail' review.id %}>자세히 보기</a>
+    </div>  
 
   {% empty %}  
     <div>
       <p> 작성된 글이 없습니다 </p>
     </div>
 
+  {% endfor %}
 
+  <a href="{% url 'profile' profile_user.id %}">프로필로 돌아가기</a>
 
-{% endfor %}
+  <div>
 
-<a href="{% url 'profile' profile_user.id %}">프로필로 돌아가기</a>
+      {% if page_obj.has_previous %}
+          <a href="?page=1">first</a>
+          <a href="?page={{page_obj.previous_page_number}}">prev</a>
+      {% endif %}
+      
+      <span>
+          <p>{{page_obj.number}} of {{page_obj.paginator.num_pages}}</p>
+      </span>
+      
+      {% if page_obj.has_next %}
+          <a href="?page={{page_obj.next_page_number}}">next</a>
+          <a href="?page={{page_obj.paginator.num_pages}}">last</a>
+      {% endif %}
 
-    <div>
-
-        {% if page_obj.has_previous %}
-            <a href="?page=1">first</a>
-            <a href="?page={{page_obj.previous_page_number}}">prev</a>
-        {% endif %}
-        <span>
-            <p>{{page_obj.number}} of {{page_obj.paginator.num_pages}}</p>
-        </span>
-        
-        {% if page_obj.has_next %}
-            <a href="?page={{page_obj.next_page_number}}">next</a>
-            <a href="?page={{page_obj.paginator.num_pages}}">last</a>
-        {% endif %}
-
-    </div>
+  </div>
 
 {% endblock content %}

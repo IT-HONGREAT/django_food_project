@@ -1,40 +1,53 @@
 {% extends 'foods_base/header.html' %}
+
 {% load static %}
 
 {% block content %}
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Food Info</title>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href={% static "foods/css/styles_detail.css"%}>
-</head>
-<body>
-  <!-- 게시 내용 -->
-  <div class="food-detail">
-    <h2>{{review.name}}</h2>
 
-    <img src="{{review.image_1.url}}" width=30% alt="이미지" />
-    <p>{{review.content}}</p>
 
-    <a href="{% url 'profile' review.author.id %}">
-      <div class="review-author">
-        <img src="{{review.author.profile_img.url}}" width=30% alt="이미지" />
-      </div>
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <title>Food Info</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href={% static "foods/css/styles_detail.css"%}>
+  </head>
 
-      <p>{{ review.author.nickname }}닉네임</p>
-    </a>
+  <body>
+    <!-- 게시 내용 -->
+    <div class="food-detail">
 
-    <!-- 타 페이지 이동 -->
-    <a href={{review.place_link}}>
-      <span>위치보기</span>
-    </a>
-    {% if review.author ==  user %}
-    <a href={% url 'review-update' review.id %}> 수정하기 </a>
-    <a href={% url 'review-delete' review.id %}> 삭제하기 </a>
-    {% endif %}
-    <a href={% url 'review-list' %}>돌아가기</a>
-  </div>
-</body>
-</html>
+      <h2>{{review.name}}</h2>
+
+      <img src="{{review.image_1.url}}" width=30% alt="이미지" />
+
+      <p>{{review.content}}</p>
+
+      <a href="{% url 'profile' review.author.id %}">
+
+        <div class="review-author">
+          <img src="{{review.author.profile_img.url}}" width=30% alt="이미지" />
+        </div>
+
+        <p>{{ review.author.nickname }}닉네임</p>
+      </a>
+
+      <!-- 타 페이지 이동 -->
+
+      <a href={{review.place_link}}>
+        <span>위치보기</span>
+      </a>
+
+      {% if review.author ==  user %}
+      <a href={% url 'review-update' review.id %}> 수정하기 </a>
+      <a href={% url 'review-delete' review.id %}> 삭제하기 </a>
+
+      {% endif %}
+      <a href={% url 'review-list' %}>돌아가기</a>
+    </div>
+
+  </body>
+  </html>
+
+  
 {% endblock content %}

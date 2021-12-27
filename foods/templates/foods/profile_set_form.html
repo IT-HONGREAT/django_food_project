@@ -1,31 +1,46 @@
 {% extends 'foods_base/header.html' %} 
+
 {% load static %} 
+
 {% load widget_tweaks %} 
+
 {% block title %}환영합니다!{% endblock title %}
+
 {% block content %}
-<div>
-  <p>환영합니다! <strong>프로필</strong>을 작성해주세요</p>
-  <form method="post" enctype="multipart/form-data" autocomplete="off">
-    {% csrf_token %}
-    <div>
-      <div style="background-image: url('{{ user.profile_pic.url }}')"></div>
-      <div>{{ form.profile_img }}</div>
-    </div>
-    <div>
-      {{ form.nickname|add_class:"cp-input"|add_error_class:"error"|attr:"placeholder:닉네임" }} 
-      {% for error in form.nickname.errors %}
-      <div class="error-message">{{ error }}</div>
-      {% endfor %}
-    </div>
-    <div>
-      {{ form.intro|add_class:"cp-input"|add_error_class:"error"|attr:"placeholder:자신을 소개해 주세요!" }} 
-      {% for error in form.intro.errors %}
-      <div class="error-message">{{ error }}</div>
-      {% endfor %}
-    </div>
-    <div class="buttons">
-      <button class="cp-button" type="submit">완료</button>
-    </div>
-  </form>
-</div>
+
+
+  <div>
+    <p>환영합니다! <strong>프로필</strong>을 작성해주세요</p>
+    
+    <form method="post" enctype="multipart/form-data" autocomplete="off">
+      {% csrf_token %}
+
+      <div>
+        <div style="background-image: url('{{ user.profile_pic.url }}')"></div>
+        <div>{{ form.profile_img }}</div>
+      </div>
+
+      <div>
+        {{ form.nickname|add_class:"cp-input"|add_error_class:"error"|attr:"placeholder:닉네임" }} 
+        {% for error in form.nickname.errors %}
+        <div class="error-message">{{ error }}</div>
+        {% endfor %}
+      </div>
+
+      <div>
+        {{ form.intro|add_class:"cp-input"|add_error_class:"error"|attr:"placeholder:자신을 소개해 주세요!" }} 
+        {% for error in form.intro.errors %}
+        <div class="error-message">{{ error }}</div>
+        {% endfor %}
+      </div>
+
+      <div class="buttons">
+        <button class="cp-button" type="submit">완료</button>
+      </div>
+
+    </form>
+
+  </div>
+
+
 {% endblock content %}
