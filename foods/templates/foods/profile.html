@@ -11,6 +11,14 @@
     </div>
 
     <h1>{{profile_user.nickname}} 의 리뷰들</h1>
+
+    <div>
+      <a href="{% url 'profile-update' %}">프로필 수정</a>
+      <a href="{% url 'account_change_password' %}">비밀번호 변경</a>
+
+    </div>
+
+
     <p>{{profile_user.intro}}</p>
 
     {% if user_reviews %}
