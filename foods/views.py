@@ -128,6 +128,6 @@ class ProfileUpdateView(LoginRequiredMixin,UpdateView):
         return reverse("profile", kwargs={"pk": self.request.user.id})
 
 
-class CustomPasswordChangeView(PasswordChangeView):
+class CustomPasswordChangeView(LoginRequiredMixin,PasswordChangeView):
     def get_success_url(self):
-        return reverse('index')
+        return reverse('profile', kwargs={"pk": self.request.user.id} )
