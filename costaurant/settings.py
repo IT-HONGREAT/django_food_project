@@ -195,3 +195,10 @@ PASSWORD_RESET_TIMEOUT_DAYS = 3
 
 # email settings
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_TLS = True
+EMAIL_HOST_USER = "hongreat95@gmail.com"
+# TODO gitignore되게 분리하고 세팅
+EMAIL_HOST_PASSWORD = ""  
+
