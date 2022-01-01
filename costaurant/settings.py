@@ -194,11 +194,28 @@ PASSWORD_RESET_TIMEOUT_DAYS = 3
 
 
 # email settings
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
-EMAIL_TLS = True
+EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "hongreat95@gmail.com"
 # TODO gitignore되게 분리하고 세팅
-EMAIL_HOST_PASSWORD = ""  
+
+#gmailpassword settings 
+local_email_password = open(os.path.join(BASE_DIR, '.email_password'))
+password_dict = dict()
+
+while True:
+    passwordline = local_email_password.readline()
+    if not passwordline:
+        break
+    passwordline = passwordline.replace('\n', "")
+    password_start = passwordline.find('=')
+    password_key = passwordline[:password_start]
+    password_value = passwordline[password_start+1:]
+    password_dict[password_key] = password_value
+
+
+
+EMAIL_HOST_PASSWORD = password_dict['EMAIL_HOST_PASSWORD'] 
 
