@@ -1,18 +1,31 @@
-{% extends "foods_base/base.html" %} {% load static %} <link rel="stylesheet"
-href={% static "foods/css/styles.css"%}> {% block header %}
+{% extends "foods_base/base.html" %} 
+{% load static %} 
+<link rel="stylesheet" href={% static "foods/css/styles.css"%}> 
+{% block header %}
 
 <div>{{date}}</div>
 
-<navbar>
-  <div class="navbar">
+<navbar class="navbar navbar-light bg-light">
+
+  <div class="col-12">
     {% if user.is_authenticated %}
-    <a href="{% url 'account_logout'%}">LogOut</a>
-    <p>안녕하세요~ {{user}}(닉네임 : {{user.nickname}})님</p>
-    <p><a href="{% url 'account_change_password' %}">비밀번호 변경</a></p>
+    <div class="row">
+      <p>안녕하세요~! {{user}}(닉네임 : {{user.nickname}})님</p>
+    </div>
+
+    <a class="btn btn-primary" href="{% url 'account_logout'%}">LogOut</a>
+    <a class="btn btn-primary" href="{% url 'account_change_password' %}">비밀번호 변경</a>
+
+    
+    
+
+    
     <a href="{% url 'profile' user.id %}">프로필</a>
+
+
     {% else %}
-    <a href="{% url 'account_login'%}">LogIn</a>
-    <a href="{% url 'account_signup'%}">SignUp</a>
+    <a class="btn btn-primary" href="{% url 'account_login'%}" role="button" >LogIn</a>
+    <a class="btn btn-primary" href="{% url 'account_signup'%}" role="button" >SignUp</a>
     <p>로그아웃 상태입니다.</p>
     {% endif %}
   </div>

@@ -4,31 +4,48 @@
 
 {% block food-container %}
 
-
+<div class="col-4">
+  <a class="btn btn-primary" href="{% url 'review-create' %} "> 리뷰작성하기!</a>
+</div>
   <h1>Food Info</h1>
 
   <div class="food-container">
 
-    <h3><a href="{% url 'review-create' %} "> 리뷰작성하기!</a></h3>
+    
 
       {% for review in reviews %}
-        <div class="food">
-          <h3>제목 : {{review.title}}</h3>
-          <h2>이름 : {{review.name}}</h2>
-          <p>장소 : {{review.place_link}}</p>
-          <p>평점 : {{review.rating}}</p>   
+      
+
+        <div class="food">          
+            <div class="card text-white bg-success mb-3" style="max-width: 20rem;">
+              <div class="card-header">{{review.title}}</div>
+              <div class="card-body">
+                <img src="{{review.image_1.url}}" width=100% alt="이미지">
+                <h4 class="card-title">{{review.name}}</h4>
+                <p class="card-text">리뷰정보 <a href={% url 'review-detail' review.id %}>자세히 보기</a></p>
+              </div>
+
+              <ul>
+                <li >평점 : {{review.rating}} 점</li>
+                <li >장소정보 {{review.place_link}}</li>
+              </ul>
+            </div>
+        </div>
+          <!-- origin -->
+          <!-- <h3>{{review.title}}</h3>
+          <h2>{{review.name}}</h2>
+          <p>장소정보 {{review.place_link}}</p>
+          <p>평점 : {{review.rating}} 점</p>   
 
           <div>
             <img src="{{review.image_1.url}}" width=100% alt="이미지">
           </div>
 
-          <div>
-            {{review.content}}
-          </div>
+          <p>{{review.content}}</p>
 
           <a href={% url 'review-detail' review.id %}>자세히 보기</a>
-          
-        </div>  
+           -->
+        <!-- </div>   -->
       
       {% empty %}  
         <div>

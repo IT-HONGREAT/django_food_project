@@ -1,0 +1,17 @@
+@font-face {
+    src: url("../fonts/BMJUA_ttf.ttf");
+    font-family: Jua;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #f19143;
+  }
+
+
+.profile img {
+    border-top-left-radius: 3rem;
+    border-top-right-radius: 3rem;
+  }
