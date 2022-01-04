@@ -7,7 +7,7 @@
 {% block content %}
 
 
-    <a href="{% url 'index' %}">홈으로 이동</a>
+    <a class="btn btn-primary" href="{% url 'index' %}">홈으로 이동</a>
 
     <form method="post">
         {% csrf_token %}
@@ -17,19 +17,27 @@
         {% endfor %}
 
             <div>
-                {{ form.login|attr:"placeholder:이메일을 입력하세요" }}
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <div class="form-group mx-sm-3 mb-2">{{ form.login|attr:"placeholder:이메일을 입력하세요" }}</div>
+                </div>
             </div>
 
             <div>
-                {{ form.password}}
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <div class="form-group mx-sm-3 mb-2">{{ form.password}}</div>
+                  </div>
+                
             </div>
             
-            <button type="submit">로그인</button>
+            <!-- <button type="submit">로그인</button> -->
+            <button type="submit" class="btn btn-primary mb-2">LogIn</button>
     </form>
 
     <div>
-        <a href="{% url 'account_reset_password' %}">비밀번호 재설정</a>
-        <a href="{% url 'account_signup' %}">회원가입</a>
+        <a class="btn btn-secondary" href="{% url 'account_reset_password' %}">비밀번호 재설정</a>
+        <a class="btn btn-secondary" href="{% url 'account_signup' %}">회원가입</a>
     </div>
 
 

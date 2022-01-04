@@ -8,10 +8,13 @@
   
   <div class="profile">
     
-    <img src="{{profile_user.profile_img.url}}" width="10%" alt="이미지" />
-    <div>
-      <a href={% url 'review-list' %}>홈으로</a>
+    <div class="d-flex flex-row">
+      <img src="{{profile_user.profile_img.url}}" width="10%" alt="이미지" />
+      <div class="p-2">
+        <a class="btn btn-secondary" href={% url 'review-list' %}>홈으로</a>
+      </div>
     </div>
+
     {% if profile_user == user %}
       <div>
         <a class="btn btn-primary" href="{% url 'profile-update' %}">프로필 수정</a>
@@ -33,7 +36,25 @@
 
 
   {% for review in user_reviews %}
-  <div class="food">
+
+  <div class="food">          
+    <div class="card text-white bg-success mb-3" style="max-width: 20rem;">
+      <div class="card-header">{{review.title}}</div>
+      <div class="card-body">
+        <img src="{{review.image_1.url}}" width=100% alt="이미지">
+        <h4 class="card-title">{{review.name}}</h4>
+        <p class="card-text">리뷰정보 <a href={% url 'review-detail' review.id %}>자세히 보기</a></p>
+      </div>
+
+      <ul>
+        <li >평점 : {{review.rating}} 점</li>
+        <li >장소정보 {{review.place_link}}</li>
+      </ul>
+    </div>
+  </div>
+
+
+  <!-- <div class="food">
       <h3>제목 : {{review.title}}</h3>
       <h2>이름 : {{review.name}}</h2>
       <p>장소 : {{review.place_link}}</p>
@@ -48,7 +69,9 @@
       </div>
 
       <a href={% url 'review-detail' review.id %}>자세히 보기</a>
-  </div>  
+  </div>   -->
+
+
 
   {% empty %}  
   <div>

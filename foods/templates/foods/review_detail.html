@@ -23,13 +23,14 @@
 
       <p>{{review.content}}</p>
 
-        <div class="review-author">
+        <div class="text-center">
           <a href="{% url 'profile' review.author.id %}">
-            <img src="{{review.author.profile_img.url}}" width=10% alt="이미지"/>
+            <img src="{{review.author.profile_img.url}}" class="rounded float-right" alt="이미지"/>
           </a>
+          <p>작성자 : {{ review.author.nickname }}</p>
         </div>
       
-      <p>{{ review.author.nickname }}닉네임</p>
+      
 
 
       <!-- 타 페이지 이동 -->
