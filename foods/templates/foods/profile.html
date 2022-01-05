@@ -9,7 +9,13 @@
   <div class="profile">
     
     <div class="d-flex flex-row">
-      <img src="{{profile_user.profile_img.url}}" width="10%" alt="이미지" />
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="{{profile_user.profile_img.url}}" alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text">{{profile_user.intro}}</p>
+        </div>
+      </div>
+  
       <div class="p-2">
         <a class="btn btn-secondary" href={% url 'review-list' %}>홈으로</a>
       </div>
@@ -25,7 +31,8 @@
 
   <div>
     <h1>{{profile_user.nickname}} 의 리뷰들</h1>
-    <p>{{profile_user.intro}}</p>
+
+    
 
     {% if user_reviews %}
     <h2>
@@ -52,24 +59,6 @@
       </ul>
     </div>
   </div>
-
-
-  <!-- <div class="food">
-      <h3>제목 : {{review.title}}</h3>
-      <h2>이름 : {{review.name}}</h2>
-      <p>장소 : {{review.place_link}}</p>
-      <p>평점 : {{review.rating}}</p>   
-
-      <div>
-        <img src="{{review.image_1.url}}" width=100% alt="이미지">
-      </div>
-
-      <div>
-        {{review.content}}
-      </div>
-
-      <a href={% url 'review-detail' review.id %}>자세히 보기</a>
-  </div>   -->
 
 
 
