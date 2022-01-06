@@ -9,39 +9,39 @@
 {% block content %}
 
 
-  <div>
-    <p><strong>프로필</strong>을 수정 해주세요</p>
-    
-    <form method="post" enctype="multipart/form-data" autocomplete="off">
-      {% csrf_token %}
 
-      <div>
-        <div style="background-image: url('{{ user.profile_pic.url }}')"></div>
-        <div>{{ form.profile_img }}</div>
-      </div>
+  <h2><strong>프로필</strong>을 수정 해주세요</h2>
+  
+  <form method="post" enctype="multipart/form-data" autocomplete="off">
+    {% csrf_token %}
 
-      <div>
-        {{ form.nickname|add_class:"cp-input"|add_error_class:"error"|attr:"placeholder:닉네임" }} 
-        {% for error in form.nickname.errors %}
-        <div class="error-message">{{ error }}</div>
-        {% endfor %}
-      </div>
+    <div class="text-center">
+      <div style="background-image: url('{{ user.profile_pic.url }}')"></div>
+      <div>{{ form.profile_img }}</div>
+    </div>
 
-      <div>
-        {{ form.intro|add_class:"cp-input"|add_error_class:"error"|attr:"placeholder:자신을 소개해 주세요!" }} 
-        {% for error in form.intro.errors %}
-        <div class="error-message">{{ error }}</div>
-        {% endfor %}
-      </div>
+    <div class="d-flex justify-content-center">
+      {{ form.nickname|add_class:"cp-input"|add_error_class:"error"|attr:"placeholder:닉네임" }} 
+      {% for error in form.nickname.errors %}
+      <div class="error-message">{{ error }}</div>
+      {% endfor %}
+    </div>
 
-      <div class="buttons">
-        <a href="{% url 'profile' user.id %}"> 취소 </a>  
-        <button class="cp-button" type="submit">완료</button>
-      </div>
+    <div class="d-flex justify-content-center">
+      {{ form.intro|add_class:"cp-input"|add_error_class:"error"|attr:"placeholder:자신을 소개해 주세요!" }} 
+      {% for error in form.intro.errors %}
+      <div class="error-message">{{ error }}</div>
+      {% endfor %}
+    </div>
 
-    </form>
+    <div class="d-flex justify-content-center">
+      <button type="submit" class="btn btn-primary">완료</button>
+      <a class="btn btn-secondary" href="{% url 'profile' user.id %}" role="button"> 취소 </a>  
+      
+    </div>
 
-  </div>
+  </form>
+
 
 
 {% endblock content %}
