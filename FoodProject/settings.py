@@ -78,7 +78,7 @@ MIDDLEWARE = [
     'foods.middleware.ProfileSetupMiddleware',
 ]
 
-ROOT_URLCONF = 'costaurant.urls'
+ROOT_URLCONF = 'FoodProject.urls'
 
 TEMPLATES = [
     {
@@ -96,7 +96,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'costaurant.wsgi.application'
+WSGI_APPLICATION = 'FoodProject.wsgi.application'
 
 
 # Database
