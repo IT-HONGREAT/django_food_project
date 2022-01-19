@@ -1,34 +1,45 @@
-{% extends "foods_base/base.html" %} 
-{% load static %} 
-<link rel="stylesheet" href={% static "foods/css/styles.css"%}> 
-{% block header %}
-
-<div>{{date}}</div>
-
-<navbar class="navbar navbar-light bg-light">
-
-  <div class="col-12">
-    {% if user.is_authenticated %}
-    <div class="row">
-      <p>안녕하세요~! {{user}}(닉네임 : {{user.nickname}})님</p>
-    </div>
-
-    <a class="btn btn-primary" href="{% url 'account_logout'%}">LogOut</a>
-    <a class="btn btn-primary" href="{% url 'account_change_password' %}">비밀번호 변경</a>
-
-    
-    
-
-    
-    <a href="{% url 'profile' user.id %}">프로필</a>
-
-
-    {% else %}
-    <a class="btn btn-primary" href="{% url 'account_login'%}" role="button" >LogIn</a>
-    <a class="btn btn-primary" href="{% url 'account_signup'%}" role="button" >SignUp</a>
-    <p>로그아웃 상태입니다.</p>
-    {% endif %}
+<navbar class="navbar">
+  <div class="navbar__logo">
+    <i class="fas fa-piggy-bank"></i>
+    <a href="">Piggy</a>
   </div>
+
+  <ul class="navbar__menu">
+    <li><a href="">Home</a></li>
+    <li><a href="">Menu_1</a></li>
+    <li><a href="">Menu_2</a></li>
+    <li><a href="">Menu_3</a></li>
+  </ul>
+
+  <div class="navbar__status">
+    
+      {% if user.is_authenticated %}
+      <!-- Todo 마이페이지 안내문구 및 조건달아서 menu후반으로 이동 -->
+      <!-- <div class="row">
+        <p>안녕하세요~! {{user}}(닉네임 : {{user.nickname}})님</p>
+      </div> -->
+  
+      <li><a class="btn btn-primary" href="{% url 'account_logout'%}">LogOut</a></li>
+      <li><a class="btn btn-primary" href="{% url 'account_change_password' %}">비밀번호 변경</a></li>
+  
+      
+      
+  
+      
+      <a href="{% url 'profile' user.id %}">프로필</a>
+  
+  
+      {% else %}
+      <li><a class="btn btn-primary" href="{% url 'account_login'%}" role="button" >LogIn</a></li>
+      <li><a class="btn btn-primary" href="{% url 'account_signup'%}" role="button" >SignUp</a></li>
+      
+      {% endif %}
+  </div>
+
+  <a href="" class="navbar__togleBtn">
+    <i class="fas fa-bars"></i>
+  </a>
+  
 </navbar>
 
-{% endblock header %}
+
