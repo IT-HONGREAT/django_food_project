@@ -1,13 +1,21 @@
-{% extends 'foods_base/header.html' %}
+{% extends 'foods_base/base.html' %}
 
 {% load static %}
 
 {% block food-container %}
 
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Food Info</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href={% static "foods/css/styles_detail.css"%}>
+</head>
+
 <div class="col-4">
   <a class="btn btn-primary" href="{% url 'review-create' %} "> 리뷰작성하기!</a>
 </div>
-  <h1>Food Info</h1>
+
 
   <div class="food-container">
 
