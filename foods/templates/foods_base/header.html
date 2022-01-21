@@ -1,14 +1,16 @@
 <navbar class="navbar">
   <div class="navbar__logo">
     <i class="fas fa-piggy-bank"></i>
-    <a href="">Piggy</a>
+    <a href="{% url 'review-list' %}">Piggy</a>
   </div>
 
   <ul class="navbar__menu">
-    <li><a href="">Home</a></li>
+    <li><a href="{% url 'review-list' %}">Home</a></li>
     <li><a href="">Menu_1</a></li>
     <li><a href="">Menu_2</a></li>
-    <li><a href="">Menu_3</a></li>
+    {% if user.is_authenticated %}
+    <li><a href="{% url 'profile' user.id %}">Mypage</a></li>
+    {% endif %}
   </ul>
 
   <div class="navbar__status">
