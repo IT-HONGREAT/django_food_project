@@ -11,7 +11,9 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href={% static "foods/css/styles_detail.css"%}>
 </head>
-
+<div class="">
+  <h5>안녕하세요~! {{user}}(닉네임 : {{user.nickname}})님</h5>
+</div>
 <div class="col-4">
   <a class="btn btn-primary" href="{% url 'review-create' %} "> 리뷰작성하기!</a>
 </div>

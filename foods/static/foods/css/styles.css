@@ -110,17 +110,17 @@ h2 {
   border-radius: 4px;
 }
 
-.navbar__status {
+.navbar__logio {
   list-style: none;
   display: flex;
   padding-left: 0; 
 }
 
-.navbar__status li {
+.navbar__logio li {
   padding:  5px 3px;
 }
 
-.navbar__togleBtn {
+.navbar__toggleBtn {
     position: absolute;
     right: 32px;
     font-size: 24px;
@@ -147,20 +147,23 @@ h2 {
     text-align: center;
   }
 
-  .navbar__status {
+  .navbar__logio {
     display: none;
     width: 100%;
     align-items: center;
   }
 
-  .navbar__status li{
+  .navbar__logio li{
     width: 50%;
     text-align: center;
   }
   
-  .navbar__togleBtn {
+  .navbar__toggleBtn {
     display: block;
 }
-  
+  .navbar__menu.active,
+  .navbar__logio.active {
+    display: flex;
+  }
   
 }

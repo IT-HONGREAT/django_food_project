@@ -13,22 +13,18 @@
     {% endif %}
   </ul>
 
-  <div class="navbar__status">
+  <div class="navbar__logio">
     
       {% if user.is_authenticated %}
       <!-- Todo 마이페이지 안내문구 및 조건달아서 menu후반으로 이동 -->
-      <!-- <div class="row">
-        <p>안녕하세요~! {{user}}(닉네임 : {{user.nickname}})님</p>
-      </div> -->
+      
   
       <li><a class="btn btn-primary" href="{% url 'account_logout'%}">LogOut</a></li>
       <li><a class="btn btn-primary" href="{% url 'account_change_password' %}">비밀번호 변경</a></li>
   
-      
-      
   
       
-      <a href="{% url 'profile' user.id %}">프로필</a>
+      <!-- <a href="{% url 'profile' user.id %}">프로필</a> -->
   
   
       {% else %}
@@ -38,7 +34,7 @@
       {% endif %}
   </div>
 
-  <a href="" class="navbar__togleBtn">
+  <a href="#" class="navbar__toggleBtn">
     <i class="fas fa-bars"></i>
   </a>
   
