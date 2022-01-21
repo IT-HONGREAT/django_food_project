@@ -15,16 +15,10 @@
 
   <div class="navbar__logio">
     
-      {% if user.is_authenticated %}
-      <!-- Todo 마이페이지 안내문구 및 조건달아서 menu후반으로 이동 -->
-      
+      {% if user.is_authenticated %}      
   
       <li><a class="btn btn-primary" href="{% url 'account_logout'%}">LogOut</a></li>
       <li><a class="btn btn-primary" href="{% url 'account_change_password' %}">비밀번호 변경</a></li>
-  
-  
-      
-      <!-- <a href="{% url 'profile' user.id %}">프로필</a> -->
   
   
       {% else %}
