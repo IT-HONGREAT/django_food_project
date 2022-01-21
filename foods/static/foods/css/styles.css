@@ -2,12 +2,21 @@
   src: url("../fonts/BMJUA_ttf.ttf");
   font-family: Jua;
 }
+/* https://material.io/resources/color/#!/?view.left=0&view.right=1&secondary.color=ffbdc1&primary.color=d6ffad */
+/* 핑크-연두 조합의 색상지정 */
+:root{
+  --text-color:#fff0f4;
+  --mainpink-color: #ffbdc1;
+  --darkpink-color:#cb8c91;
+  --lightgreen-color: #d6ffad;
+  --darkgreen-color: #a4cc7d;
+}
 * {
   box-sizing: border-box;
 }
 
 body {
-  background-color: #ffbdc1;
+  background-color: var(--mainpink-color)
 }
 
 h1 {
@@ -45,6 +54,10 @@ h2 {
   margin-right: 15px;
 }
 
+.card {
+  background-color: var(--lightgreen-color);
+}
+
 .food h3 {
   color: #7a5e47;
   font-size: 2.5rem;
@@ -59,7 +72,7 @@ h2 {
 }
 
 .food a {
-  color: #0000ee;
+  color: var(--darkgreen-color);
   font-size: 16px;
   font-family: Jua;
   text-decoration: none;
@@ -76,7 +89,7 @@ h2 {
 }
 
 .food .review-author a {
-  color: #1a9b3a;
+  color: var(--darkgreen-color);
   font-size: 16px;
   font-family: Jua;
   text-decoration: none;
@@ -124,7 +137,7 @@ h2 {
     position: absolute;
     right: 32px;
     font-size: 24px;
-    color: #ffbdc1;
+    color: var(--mainpink-color);
     display: none;
 }
 
