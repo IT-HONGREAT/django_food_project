@@ -24,6 +24,9 @@
     <div class="d-flex justify-content-center">
         <h2>장소 : </h2>
         {{form.place_link}}
+        {% for error in form.place_link.errors %}
+            <div class="error-message">{{error}}</div>
+        {% endfor %}
     </div>
     
     <div class="d-flex justify-content-center">
@@ -39,6 +42,9 @@
     
     <div class="d-flex justify-content-center">
         <p>{{form.content}}</p>
+        {% for error in form.content.errors %}
+            <div class="error-message">{{error}}</div>
+        {% endfor %}
     </div>
     
     <div class="d-flex justify-content-center">

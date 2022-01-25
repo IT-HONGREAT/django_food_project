@@ -14,37 +14,39 @@
   </head>
 
   <body>
-    <!-- 게시 내용 -->
+    
     <div class="food-detail">
 
       <h2>{{review.name}}</h2>
 
-      <img src="{{review.image_1.url}}" width=30% alt="이미지" />
+      <img class="foodimg" src="{{review.image_1.url}}" width=30% alt="이미지" />
 
-      <p>{{review.content}}</p>
-
-        <div class="text-center">
+      <h3>{{review.content}}</h3>
+    </div>
+        
+    <div class="review-author">
           <a href="{% url 'profile' review.author.id %}">
-            <img src="{{review.author.profile_img.url}}" class="rounded float-right" alt="이미지"/>
+            <img class="author-img" src="{{review.author.profile_img.url}}" alt="이미지"/>  
           </a>
-          <p>작성자 : {{ review.author.nickname }}</p>
-        </div>
+    </div>
+    <p class="author-name">작성자 : {{ review.author.nickname }}</p>
+    
       
+
+
+    <div class="review-info">
+
+        <a target=”_blank” href={{review.place_link}}>
+          <span>위치보기</span>
+        </a>
+
+        {% if review.author ==  user %}
+        <a href={% url 'review-update' review.id %}> 수정하기 </a>
+        <a href={% url 'review-delete' review.id %}> 삭제하기 </a>
+
+        {% endif %}
+        <a href={% url 'review-list' %}>돌아가기</a>
       
-
-
-      <!-- Todo bootstrap 으로 변경하기-->
-
-      <a target=”_blank” href={{review.place_link}}>
-        <span>위치보기</span>
-      </a>
-
-      {% if review.author ==  user %}
-      <a href={% url 'review-update' review.id %}> 수정하기 </a>
-      <a href={% url 'review-delete' review.id %}> 삭제하기 </a>
-
-      {% endif %}
-      <a href={% url 'review-list' %}>돌아가기</a>
     </div>
 
   </body>

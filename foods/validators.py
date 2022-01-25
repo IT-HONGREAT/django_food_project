@@ -63,5 +63,5 @@ def validate_no_special_characters(value):
 
 
 def validate_no_place_link(value):
-    if "place.naver.com" not in value and "place.map.kakao.com" not in value:
+    if "place.naver.com" not in value and "map.kakao.com" not in value:
         raise ValidationError("네이버/카카오 플레이스 url을 포함시켜줘야합니다")
