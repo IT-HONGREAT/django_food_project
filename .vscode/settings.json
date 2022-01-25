@@ -17,7 +17,8 @@
   "files.associations": {
         "*.html": "html",
         "**/*.html": "html",
-      },
+    },
+    "python.languageServer": "None",
       
 
 }
