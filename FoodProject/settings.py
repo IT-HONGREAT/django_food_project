@@ -42,7 +42,7 @@ SECRET_KEY = env_list['SECRET_KEY']
 DEBUG = True  # 로컬수정
 
 # ALLOWED_HOSTS = ['.pythonanywhere.com'] #로컬x
-ALLOWED_HOSTS = []  # 로컬수정
+ALLOWED_HOSTS = ["*"]  # 로컬수정
 
 
 # Application definition
