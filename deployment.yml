@@ -17,7 +17,7 @@ spec:
       containers:
       - name: kubernetes-django-food
         image: hongreat/kubernetes-django-food:latest
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8000
-      imagePullSecrets: 
-        - name: regcred
+
