@@ -42,8 +42,8 @@ def predict_model(request):
                                     weight=weight, 
                                     sex=sex,
                                     prediction = prediction_name)
-            return render(request, 'home.html', {'form': form, 'prediction': prediction,'prediction_name': prediction_name})
+            return render(request, 'bmi/home.html', {'form': form, 'prediction': prediction,'prediction_name': prediction_name})
     else:
         form = ModelForm()
 
-    return render(request, 'home.html', {'form': form})
+    return render(request, 'bmi/home.html', {'form': form})
