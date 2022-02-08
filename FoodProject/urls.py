@@ -26,6 +26,10 @@ urlpatterns = [
     path('', include('posts.urls')),
     path('password/change/', CustomPasswordChangeView.as_view(),
          name='account_password_change'),
+    
+    # ml
+    path('', include('bmi.urls')),
+
     # all auth
     path('', include('allauth.urls')),
     path("email-confirmation-required/", TemplateView.as_view(
