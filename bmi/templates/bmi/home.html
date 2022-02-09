@@ -1,27 +1,35 @@
-{% extends 'base.html' %}
+{% extends 'foods_base/base.html' %}
 
 {% block content %}
 <form method = "POST" , enctype="multipart/form-data">
 {% csrf_token %}
 
-
+<div class="form-group">
     <div class="d-flex justify-content-center">
+        <h2>키 : </h2> 
         {{form.height}}
+        <p>cm</p> 
     </div>
     <div class="d-flex justify-content-center">
+        <h2>몸무게 : </h2> 
         {{form.weight}}
+        <p>Kg</p> 
     </div>
     <div class="d-flex justify-content-center">
+        <h2>성별 : </h2> 
         {{form.sex}}
+        <p>0:여 /  1:남</p>
     </div>
     <div class="d-flex justify-content-center">
-        <button type="submit" class="btn btn-primary mb-2">작성완료</button>
+        <button type="submit" class="btn btn-primary mb-2">BMI</button>
     </div>
+</div>
+<a class="btn btn-secondary" href={% url 'review-list' %}>홈으로</a>
+
 </form>
 
 {% if form.is_valid %}
-<p> The model predicted: <b>{{ prediction_name }}</b></p>
-
+<p> 예측되는 BMI 결과 : <b>{{ prediction_name }}</b> 입니다</p>
 
 {% endif %}
 

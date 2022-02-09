@@ -13,6 +13,7 @@
 }
 * {
   box-sizing: border-box;
+  font-family: Jua;
 }
 
 body {
@@ -25,14 +26,12 @@ h1 {
   color: #facf14;
   margin-top: 75px;
   margin-bottom: 30px;
-  font-family: Jua;
 }
 
 h2 {
   text-align: center;
   font-size: 2rem;
   color: #fad014;
-  font-family: Jua;
 }
 
 .food-container {
@@ -61,20 +60,17 @@ h2 {
 .food h3 {
   color: #7a5e47;
   font-size: 2.5rem;
-  font-family: Jua;
 }
 
 .food p {
   color: #58595b;
   font-size: 1.5rem;
-  font-family: Jua;
   text-align: left;
 }
 
 .food a {
-  color: var(--darkgreen-color);
+  color: var(--darkgreen-color);  
   font-size: 16px;
-  font-family: Jua;
   text-decoration: none;
 }
 
@@ -91,7 +87,6 @@ h2 {
 .food .review-author a {
   color: var(--darkgreen-color);
   font-size: 16px;
-  font-family: Jua;
   text-decoration: none;
 }
 

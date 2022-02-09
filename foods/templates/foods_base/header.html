@@ -7,7 +7,7 @@
   <ul class="navbar__menu">
     <li><a href="{% url 'review-list' %}">Home</a></li>
     <li><a href="">Menu_1</a></li>
-    <li><a href="">Menu_2</a></li>
+    <li><a href="{% url 'bmi:predict_model' %}">Predict_BMI</a></li>
     {% if user.is_authenticated %}
     <li><a href="{% url 'profile' user.id %}">Mypage</a></li>
     {% endif %}

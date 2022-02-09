@@ -1,0 +1,73 @@
+@font-face {
+src: url("../fonts/BMJUA_ttf.ttf");
+font-family: Jua;
+}
+* {
+box-sizing: border-box;
+font-family: Jua;
+}
+
+body {
+background-color: #ffbdc1;
+}
+
+h2 {
+font-size: 2rem;
+color: #9e6026;
+text-align: center;
+}
+
+.header h3 {
+color: #58595b;
+text-align: center;
+}
+
+.food-detail {
+width: 660px;
+margin-left: auto;
+margin-right: auto;
+}
+
+.food-detail h3 {
+color: #58595b;
+font-size: 32px;
+text-align: center;
+}
+
+.food-detail p {
+color: #58595b;
+font-size: 2rem;
+text-align: left;
+}
+
+.foodimg {
+display: block;
+width: 300px;
+height: 200px;
+margin-left: auto;
+margin-right: auto;
+border-radius: 20%;
+}
+
+
+
+.review-author {
+position: relative;
+text-align: right;
+width: 7rem;
+height: 7rem; 
+border-radius: 70%;
+overflow: hidden
+}
+
+.author-img{
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+
+.author-name {
+color: #58595b;
+font-size: 2rem;
+text-align: right;
+}
