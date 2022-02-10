@@ -29,6 +29,7 @@ urlpatterns = [
     
     # ml
     path('', include('bmi.urls')),
+    path('bmiapi/', include('bmiapi.urls')),
 
     # all auth
     path('', include('allauth.urls')),
