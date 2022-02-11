@@ -6,7 +6,7 @@ import pickle
 import joblib
 
 def predict_model(request):
-    
+    # input data change to dataframe for prediction
     def info_to_df(height,weight,gender):
         height,weight = height/100,weight /100
         check = pd.DataFrame(columns=['Height','Weight','gender'])

@@ -6,7 +6,7 @@ app_name = 'bmi'
 
 urlpatterns = [
 
-    # ml 관련 urls
-    path('bmi/predict', views.predict_model, name='predict_model'),
+    # bmiapp url
+    path('predict/', views.predict_model, name='predict_model'),
     
 ]

@@ -20,8 +20,7 @@ class Predictions(models.Model):
         (1,1), #남자
     ]
 
-    # Prediction table fields (or columns) are defined by creating attributes
-    # and assigning them to field instances such as models.CharField()
+    # Prediction table fields are dataframe(height, weight, sex)
     
     height = models.IntegerField(default=1)
     weight = models.IntegerField(default=1)

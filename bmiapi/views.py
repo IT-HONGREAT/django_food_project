@@ -13,7 +13,7 @@ class BmiPrediction(APIView):
 
 
     def post(self, request):
-
+        # input data change to dataframe for prediction
         def info_to_df(height,weight,gender):
             height,weight = height/100,weight /100
             check = pd.DataFrame(columns=['Height','Weight','gender'])
@@ -21,6 +21,14 @@ class BmiPrediction(APIView):
             infodf = check.append(data_to_insert, ignore_index=True)
             return infodf
 
+        """
+        json input example; height, weight, sex(gender 0:female, 1:male)
+        {
+            "height":170,
+            "weight":70,
+            "sex":1
+        }
+        """
         data = request.data
         
         height = data['height']
@@ -40,10 +48,6 @@ class BmiPrediction(APIView):
         
         prediction_name = prediction_dict[prediction[0]]
 
-    
-        # Predictions.objects.create(height=height, 
-        #                         weight=weight, 
-        #                         sex=sex,
-        #                         prediction = prediction_name)
+        # json output { "prediction_name": prediction_name }
         return Response({'prediction_name': prediction_name}, status=200)
         
