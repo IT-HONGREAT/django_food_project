@@ -64,9 +64,10 @@ h2 {
 .review-author {
   position: relative;
   text-align: right;
-  width: 7rem;
-  height: 7rem; 
+  width: 5rem;
+  height: 5rem; 
   border-radius: 70%;
+  float: right;
   overflow: hidden
 }
 
@@ -77,7 +78,7 @@ h2 {
 }
 
 .author-name {
-  color: #58595b;
-  font-size: 2rem;
+  color: #34c4b0;
+  font-size: 1.5rem;
   text-align: right;
 }

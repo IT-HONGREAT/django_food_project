@@ -27,8 +27,9 @@ urlpatterns = [
     path('password/change/', CustomPasswordChangeView.as_view(),
          name='account_password_change'),
     
-    # ml
-    path('', include('bmi.urls')),
+    # bmi predict url
+    path('bmi/', include('bmi.urls')), # bmiapp
+    path('bmiapi/', include('bmiapi.urls')), # bmiapi app
 
     # all auth
     path('', include('allauth.urls')),
