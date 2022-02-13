@@ -58,6 +58,7 @@ class Review(models.Model):
     image_2 = models.ImageField(upload_to='food_img/', blank=True)
     image_3 = models.ImageField(upload_to='food_img/', blank=True)
     content = models.TextField()
+
     created_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)
 
@@ -65,3 +66,14 @@ class Review(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Comment(models.Model):
+    comment = models.TextField()
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    post = models.ForeignKey(Review, on_delete=models.CASCADE)
+    
+    created_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.comment

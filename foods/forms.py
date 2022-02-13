@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import widgets
-from .models import Review, User
+from .models import Review, User, Comment
 from foods import models
 
 
@@ -41,3 +41,10 @@ class ProfileForm(forms.ModelForm):
         widgets = {
             "intro": forms.Textarea,
         }
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        field = [
+            "comment"
+        ]

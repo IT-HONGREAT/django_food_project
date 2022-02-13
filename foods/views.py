@@ -1,4 +1,4 @@
-from foods.forms import Reviewform, ProfileForm
+from foods.forms import Reviewform, ProfileForm, CommentForm
 from django.http.response import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.http import HttpResponse, Http404
@@ -24,6 +24,14 @@ class IndexView(ListView):
 
 class ReviewDetailView(DetailView):
     model = Review
+    form_class = CommentForm()
+
+    def get_success_url(self):
+        return reverse('review-detail', kwargs={'pk': self.object.id})
+
+
+
+
 
 
 class ReviewCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
