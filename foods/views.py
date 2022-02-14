@@ -24,7 +24,7 @@ class IndexView(ListView):
 
 class ReviewDetailView(DetailView):
     model = Review
-    form_class = CommentForm()
+
 
     def get_success_url(self):
         return reverse('review-detail', kwargs={'pk': self.object.id})
