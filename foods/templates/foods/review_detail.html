@@ -10,7 +10,9 @@
   <head>
     <title>Food Info</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href={% static "foods/css/styles_detail.css"%}>
+    {% block extrahead %}
+      <link rel="stylesheet" href={% static "foods/css/styles_detail.css"%}>
+    {% endblock extrahead %}
   </head>
 
   <body>
@@ -31,18 +33,32 @@
     </div>
     <p class="author-name">작성자 : {{ review.author.nickname }}</p>
     
-    <div class="comment">
+    <div class="comment-list">
+
       <h3>comment test</h3>
         
       {% for comment in review.comment_set.all %}
-        <b>{{ comment.comment }}</b>  
+
+        <div class="comment-bar">
+          <div class="comment-card" style="max-width: 10rem;">
+            <p class="comment-text">작성자:{{user}}내용: {{ comment.comment }}</p> 
+          </div>
+        </div>
+        
       {% endfor %}
-      
-      <form method = "POST" , enctype="multipart/form-data">
-        {% csrf_token %}
-        {{form.comment}}
-        <button type="submit" class="btn btn-primary mb-2">제출</button>
-      </form>
+
+    </div>
+
+    <div class="comment-create">
+
+      {% if user.is_authenticated %}
+        <form method = "POST" , enctype="multipart/form-data">
+          {% csrf_token %}
+          {{form.comment}}
+          <button type="submit" class="btn btn-primary mb-2">제출</button>
+        </form>
+      {% endif %}
+
     </div>  
 
 

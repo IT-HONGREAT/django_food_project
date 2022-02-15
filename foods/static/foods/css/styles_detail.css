@@ -13,7 +13,7 @@ body {
 
 h2 {
   font-size: 3rem;
-  color: #fad014;
+  color: #af762b;
   text-align: center;
 }
 
@@ -81,4 +81,21 @@ h2 {
   color: #34c4b0;
   font-size: 1.5rem;
   text-align: right;
+}
+
+.comment-list {
+  background-color: rgb(56, 145, 90);
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 50px;
+  float: left;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.comment-card {
+  background-color: rgb(66, 119, 119);
 }
