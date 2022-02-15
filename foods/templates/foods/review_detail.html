@@ -32,6 +32,12 @@
     <p class="author-name">작성자 : {{ review.author.nickname }}</p>
     
     <div class="comment">
+      <h3>comment test</h3>
+        
+      {% for comment in review.comment_set.all %}
+        <b>{{ comment.comment }}</b>  
+      {% endfor %}
+      
       {{form.title}}
     </div>  
 

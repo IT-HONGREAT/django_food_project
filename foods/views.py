@@ -139,3 +139,8 @@ class ProfileUpdateView(LoginRequiredMixin,UpdateView):
 class CustomPasswordChangeView(LoginRequiredMixin,PasswordChangeView):
     def get_success_url(self):
         return reverse('profile', kwargs={"pk": self.request.user.id} )
+
+def person_test(request):
+    person_list = Person.objects.order_by('-name')
+    context = {'person_list': person_list}
+    return render(request, 'dj/index.html', context)
