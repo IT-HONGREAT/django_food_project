@@ -70,7 +70,7 @@ class Review(models.Model):
 
 class Comment(models.Model):
     comment = models.TextField()
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
     post = models.ForeignKey(Review, on_delete=models.CASCADE)
     
     created_date = models.DateTimeField(auto_now_add=True)

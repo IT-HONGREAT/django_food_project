@@ -38,7 +38,11 @@
         <b>{{ comment.comment }}</b>  
       {% endfor %}
       
-      {{form.title}}
+      <form method = "POST" , enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.comment}}
+        <button type="submit" class="btn btn-primary mb-2">제출</button>
+      </form>
     </div>  
 
 

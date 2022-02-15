@@ -3,7 +3,8 @@ from django.http.response import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.http import HttpResponse, Http404
 from django.urls import reverse
-from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView, RedirectView
+from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView, RedirectView, FormView, View
+from django.views.generic.detail import SingleObjectMixin
 from datetime import datetime
 from allauth.account.views import PasswordChangeView
 from allauth.account.models import EmailAddress
@@ -22,12 +23,16 @@ class IndexView(ListView):
     paginated_by = 10
 
 
-class ReviewDetailView(DetailView):
-    model = Review
+# class ReviewDetailView(DetailView):
+#     model = Review
 
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context['form'] = CommentForm()
+#         return context
 
-    def get_success_url(self):
-        return reverse('review-detail', kwargs={'pk': self.object.id})
+#     def get_success_url(self):
+#         return reverse('review-detail', kwargs={'pk': self.object.id})
 
 
 
@@ -140,7 +145,53 @@ class CustomPasswordChangeView(LoginRequiredMixin,PasswordChangeView):
     def get_success_url(self):
         return reverse('profile', kwargs={"pk": self.request.user.id} )
 
-def person_test(request):
-    person_list = Person.objects.order_by('-name')
-    context = {'person_list': person_list}
-    return render(request, 'dj/index.html', context)
+
+class ReviewComment(SingleObjectMixin, FormView):
+    model = Review
+    form_class = CommentForm
+    template_name = 'foods/review_detail.html'
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        return super().post(request, *args, **kwargs)
+
+    def get_form_kwargs(self):
+        kwargs = super(ReviewComment, self).get_form_kwargs()
+        kwargs['request'] = self.request
+        return kwargs
+
+    def form_valid(self, form):
+        comment = form.save(commit=False)
+        comment.post = self.object
+        comment.save()
+        return super().form_valid(form)
+
+    
+
+    def get_success_url(self):
+        review = self.get_object()
+        return reverse('review-detail', kwargs={'pk': self.object.id}) + '#comments'
+
+class ReviewDisplay(DetailView):
+    model = Review
+    template_name = 'foods/review_detail.html'
+    context_object_name = 'review'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = CommentForm()
+        return context
+    
+
+    def get_success_url(self):
+        return reverse('review-detail', kwargs={'pk': self.object.id})
+
+class ReviewDetailView(View):
+
+    def get(self, request, *args, **kwargs):
+        view = ReviewDisplay.as_view()
+        return view(request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        view = ReviewComment.as_view()
+        return view(request, *args, **kwargs)
