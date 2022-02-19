@@ -6,11 +6,9 @@ import pandas as pd
 import pickle
 import joblib
 
-# Create your views here.
+
 
 class BmiPrediction(APIView):
-
-
 
     def post(self, request):
         # input data change to dataframe for prediction

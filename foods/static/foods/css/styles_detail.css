@@ -17,6 +17,12 @@ h2 {
   text-align: center;
 }
 
+h3 {
+  font-size: 2rem;
+  color: #34c4b0;
+  text-align: center;
+}
+
 .header h3 {
   color: #58595b;
   text-align: center;
@@ -83,19 +89,23 @@ h2 {
   text-align: right;
 }
 
+
 .comment-list {
-  background-color: rgb(56, 145, 90);
-  width: 100px;
+
+  width: 660px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.comment-card {
+  background-color: rgb(78, 116, 93);
+  width: 30rem;
   margin-left: auto;
   margin-right: auto;
   border-radius: 10px;
   overflow: hidden;
-  margin-bottom: 50px;
+  margin-bottom: 10px;
   float: left;
-  margin-left: 15px;
-  margin-right: 15px;
-}
-
-.comment-card {
-  background-color: rgb(66, 119, 119);
+  margin-left: 10rem;
+  margin-right: 10rem;
 }

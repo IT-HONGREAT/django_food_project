@@ -39,12 +39,11 @@
         
       {% for comment in review.comment_set.all %}
 
-        <div class="comment-bar">
-          <div class="comment-card" style="max-width: 10rem;">
-            <p class="comment-text">작성자:{{user}}내용: {{ comment.comment }}</p> 
-          </div>
+        <div class="comment-card">
+          <p class="comment-text">작성자:{{user}}</p>
+          <p class="comment-text">내용: {{ comment.comment }}</p> 
         </div>
-        
+      
       {% endfor %}
 
     </div>

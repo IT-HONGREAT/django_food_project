@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import Menu, Review, User, Comment
+from .models import Review, User, Comment
 # Register your models here.
 
 admin.site.register(User, UserAdmin)
@@ -16,5 +16,3 @@ class ReviewAdmin(admin.ModelAdmin):
         ReviewComment,
     ]
 admin.site.register(Review,ReviewAdmin)
-
-admin.site.register(Menu)
