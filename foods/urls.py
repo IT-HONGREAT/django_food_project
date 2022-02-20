@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from . import views
+from foods.views import FoodListAPIView
 
 urlpatterns = [
 
@@ -20,4 +21,7 @@ urlpatterns = [
          views.UserReviewListView.as_view(), name='user-review-list'),
     path("set-profile/", views.ProfileSetView.as_view(), name="profile-set"),
      path("edit-profile/", views.ProfileUpdateView.as_view(), name="profile-update"),
+
+     #rest_framework
+     path('foods/apiview', FoodListAPIView.as_view()),
 ]
