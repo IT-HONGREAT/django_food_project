@@ -25,8 +25,6 @@ class User(AbstractUser):
     def __str__(self):
         return self.email
 
-# Review모델 싱크 완성후 Menu모델 삭제 고려
-
 
 class Review(models.Model):
     title = models.CharField(max_length=30)

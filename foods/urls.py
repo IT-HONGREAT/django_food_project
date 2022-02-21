@@ -24,4 +24,5 @@ urlpatterns = [
 
      #rest_framework
      path('foods/apiview', FoodListAPIView.as_view()),
+     path('foods/detailapiview', FoodListAPIView.as_view()),
 ]

@@ -12,3 +12,8 @@ class ReviewSerializer(serializers.ModelSerializer):
             'name',
             'content'
         )
+
+class ReviewDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Review
+        fields = '__all__'

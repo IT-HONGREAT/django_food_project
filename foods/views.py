@@ -12,8 +12,9 @@ from foods.models import Review, User
 from braces.views import LoginRequiredMixin, UserPassesTestMixin
 from foods.functions import confirmation_required_redirect
 
-from rest_framework.generics import ListAPIView
-from foods.serializers import ReviewSerializer
+from rest_framework.generics import ListAPIView, RetrieveUpdateDestroyAPIView
+from foods.serializers import ReviewSerializer, ReviewDetailSerializer
+
 
 # Create your views here.
 
@@ -24,6 +25,7 @@ class IndexView(ListView):
     context_object_name = "reviews"
     paginated_by = 10
 
+# for api
 class FoodListAPIView(ListAPIView):
     
     
@@ -41,6 +43,10 @@ class ReviewDetailView(DetailView):
     def get_success_url(self):
         return reverse('review-detail', kwargs={'pk': self.object.id})
 
+# for api
+class DetailUpdateView(RetrieveUpdateDestroyAPIView):
+    queryset = Review.objects.all()
+    serializer_class = ReviewDetailSerializer
 
 
 class ReviewCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
