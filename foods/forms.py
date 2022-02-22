@@ -37,6 +37,9 @@ class ProfileForm(forms.ModelForm):
             "nickname",
             "profile_img",
             "intro",
+            "height",
+            "weight",
+            "sex",
         ]
         widgets = {
             "intro": forms.Textarea,
