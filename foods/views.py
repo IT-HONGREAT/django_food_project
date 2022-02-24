@@ -12,8 +12,8 @@ from foods.models import Review, User
 from braces.views import LoginRequiredMixin, UserPassesTestMixin
 from foods.functions import confirmation_required_redirect
 
-from rest_framework.generics import ListAPIView, RetrieveUpdateDestroyAPIView
-from foods.serializers import ReviewSerializer, ReviewDetailSerializer
+from rest_framework.generics import ListAPIView, RetrieveUpdateDestroyAPIView, RetrieveAPIView, RetrieveUpdateAPIView
+from foods.serializers import ReviewSerializer, ReviewDetailSerializer, ProfileSerializer
 
 
 # Create your views here.
@@ -107,6 +107,12 @@ class ProfileView(DetailView):
         context["user_reviews"] = Review.objects.filter(
             author_id=user_id).order_by("-created_date")
         return context
+
+# for api
+class ProfileAPIView(RetrieveUpdateAPIView):
+    queryset = User.objects.all()
+    serializer_class = ProfileSerializer
+
 
 
 class UserReviewListView(ListView):

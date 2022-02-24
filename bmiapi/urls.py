@@ -8,7 +8,5 @@ urlpatterns = [
 
     # bmiapi view, after root url
     path('', BmiPrediction.as_view(), name='predict_model'),
-    path('/predict', BmiPrediction.as_view(), name='predict_model'),
-    
 ]
 

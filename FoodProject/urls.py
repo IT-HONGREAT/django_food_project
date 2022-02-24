@@ -28,8 +28,9 @@ urlpatterns = [
          name='account_password_change'),
     
     # bmi predict url
-    path('bmi/', include('bmi.urls')), # bmiapp
-    path('bmiapi/', include('bmiapi.urls')), # bmiapi app
+    path('bmi/', include('bmi.urls')),
+    # bmiapi predict url -> DRF
+    path('bmiapi/', include('bmiapi.urls')),
 
     # all auth
     path('', include('allauth.urls')),
