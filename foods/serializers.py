@@ -7,10 +7,15 @@ print('test',Review.objects.all())
 class ReviewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Review
+        # fields = "__all__"
         fields = (
             'title',
             'name',
-            'content'
+            'place_link',
+            'image_1',
+            'image_2',
+            'image_3',
+            'content',
         )
 
 class ReviewDetailSerializer(serializers.ModelSerializer):

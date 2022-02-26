@@ -12,7 +12,8 @@ from foods.models import Review, User
 from braces.views import LoginRequiredMixin, UserPassesTestMixin
 from foods.functions import confirmation_required_redirect
 
-from rest_framework.generics import ListAPIView, RetrieveUpdateDestroyAPIView, RetrieveAPIView, RetrieveUpdateAPIView
+from rest_framework.generics import ListAPIView, RetrieveUpdateDestroyAPIView, RetrieveAPIView, RetrieveUpdateAPIView, \
+    ListCreateAPIView
 from foods.serializers import ReviewSerializer, ReviewDetailSerializer, ProfileSerializer
 
 
@@ -25,12 +26,12 @@ class IndexView(ListView):
     context_object_name = "reviews"
     paginated_by = 10
 
+
 # for api
-class FoodListAPIView(ListAPIView):
-    
-    
+class FoodListAPIView(ListCreateAPIView):
     queryset = Review.objects.all()
     serializer_class = ReviewSerializer
+
 
 class ReviewDetailView(DetailView):
     model = Review
@@ -42,6 +43,7 @@ class ReviewDetailView(DetailView):
 
     def get_success_url(self):
         return reverse('review-detail', kwargs={'pk': self.object.id})
+
 
 # for api
 class DetailUpdateView(RetrieveUpdateDestroyAPIView):
@@ -108,11 +110,11 @@ class ProfileView(DetailView):
             author_id=user_id).order_by("-created_date")
         return context
 
+
 # for api
 class ProfileAPIView(RetrieveUpdateAPIView):
     queryset = User.objects.all()
     serializer_class = ProfileSerializer
-
 
 
 class UserReviewListView(ListView):
@@ -133,7 +135,7 @@ class UserReviewListView(ListView):
         return context
 
 
-class ProfileSetView(LoginRequiredMixin,UpdateView):
+class ProfileSetView(LoginRequiredMixin, UpdateView):
     model = User
     form_class = ProfileForm
     template_name = "foods/profile_set_form.html"
@@ -145,7 +147,7 @@ class ProfileSetView(LoginRequiredMixin,UpdateView):
         return reverse("index")
 
 
-class ProfileUpdateView(LoginRequiredMixin,UpdateView):
+class ProfileUpdateView(LoginRequiredMixin, UpdateView):
     model = User
     form_class = ProfileForm
     template_name = "foods/profile_update_form.html"
@@ -157,9 +159,9 @@ class ProfileUpdateView(LoginRequiredMixin,UpdateView):
         return reverse("profile", kwargs={"pk": self.request.user.id})
 
 
-class CustomPasswordChangeView(LoginRequiredMixin,PasswordChangeView):
+class CustomPasswordChangeView(LoginRequiredMixin, PasswordChangeView):
     def get_success_url(self):
-        return reverse('profile', kwargs={"pk": self.request.user.id} )
+        return reverse('profile', kwargs={"pk": self.request.user.id})
 
 
 class ReviewComment(SingleObjectMixin, FormView):
@@ -182,8 +184,6 @@ class ReviewComment(SingleObjectMixin, FormView):
         comment.save()
         return super().form_valid(form)
 
-    
-
     def get_success_url(self):
         review = self.get_object()
         return reverse('review-detail', kwargs={'pk': self.object.id}) + '#comments'
@@ -198,7 +198,6 @@ class ReviewDisplay(DetailView):
         context = super().get_context_data(**kwargs)
         context['form'] = CommentForm()
         return context
-    
 
     def get_success_url(self):
         return reverse('review-detail', kwargs={'pk': self.object.id})
