@@ -8,13 +8,13 @@ from django.views.generic.detail import SingleObjectMixin
 from datetime import datetime
 from allauth.account.views import PasswordChangeView
 from allauth.account.models import EmailAddress
-from foods.models import Review, User
+from foods.models import Review, User, Comment
 from braces.views import LoginRequiredMixin, UserPassesTestMixin
 from foods.functions import confirmation_required_redirect
 
 from rest_framework.generics import ListAPIView, RetrieveUpdateDestroyAPIView, RetrieveAPIView, RetrieveUpdateAPIView, \
     ListCreateAPIView
-from foods.serializers import ReviewSerializer, ReviewDetailSerializer, ProfileSerializer
+from foods.serializers import ReviewSerializer, ReviewDetailSerializer, ProfileSerializer, CommentSerializer
 
 
 # Create your views here.
@@ -187,6 +187,12 @@ class ReviewComment(SingleObjectMixin, FormView):
     def get_success_url(self):
         review = self.get_object()
         return reverse('review-detail', kwargs={'pk': self.object.id}) + '#comments'
+
+
+# for api
+class CommentAPIView(ListCreateAPIView):
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
 
 
 class ReviewDisplay(DetailView):

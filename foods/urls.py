@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from . import views
-from foods.views import FoodListAPIView, DetailUpdateView, ProfileAPIView
+from foods.views import FoodListAPIView, DetailUpdateView, ProfileAPIView, CommentAPIView
 
 urlpatterns = [
 
@@ -28,4 +28,7 @@ urlpatterns = [
 
     # profile; rest_framework
     path("userapi/<int:pk>",ProfileAPIView.as_view()),
+
+    # comment; rest_framework
+    path("foods/comment", CommentAPIView.as_view()),
 ]
