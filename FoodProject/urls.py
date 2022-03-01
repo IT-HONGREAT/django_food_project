@@ -21,23 +21,26 @@ from django.views.generic import TemplateView
 from foods.views import CustomPasswordChangeView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('foods.urls')),
-    path('', include('posts.urls')),
-    path('password/change/', CustomPasswordChangeView.as_view(),
-         name='account_password_change'),
-    
+    path("admin/", admin.site.urls),
+    path("", include("foods.urls")),
+    path("", include("posts.urls")),
+    path("password/change/", CustomPasswordChangeView.as_view(), name="account_password_change"),
     # bmi predict url
-    path('bmi/', include('bmi.urls')),
+    path("bmi/", include("bmi.urls")),
     # bmiapi predict url -> DRF
-    path('bmiapi/', include('bmiapi.urls')),
-
+    path("bmiapi/", include("bmiapi.urls")),
     # all auth
-    path('', include('allauth.urls')),
-    path("email-confirmation-required/", TemplateView.as_view(
-        template_name='account/email_confirmation_required.html'), name='account_email_confirmation_required'),
-    path("email-confirmation-done/", TemplateView.as_view(
-        template_name='account/email_confirmation_done.html'), name='account_email_confirmation_done'),
+    path("", include("allauth.urls")),
+    path(
+        "email-confirmation-required/",
+        TemplateView.as_view(template_name="account/email_confirmation_required.html"),
+        name="account_email_confirmation_required",
+    ),
+    path(
+        "email-confirmation-done/",
+        TemplateView.as_view(template_name="account/email_confirmation_done.html"),
+        name="account_email_confirmation_done",
+    ),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

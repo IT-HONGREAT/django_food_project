@@ -11,7 +11,7 @@ def contains_special_character(value):
     return False
 
 
-def contains_uppercase_letter(value):   # 영문 대문자가 하나라도 있는지 확인
+def contains_uppercase_letter(value):  # 영문 대문자가 하나라도 있는지 확인
 
     for letter in value:
         if letter.isupper():
@@ -20,7 +20,7 @@ def contains_uppercase_letter(value):   # 영문 대문자가 하나라도 있�
     return False
 
 
-def contains_lowercase_letter(value):   # 영문 소문자가 하나라도 있는지 확인
+def contains_lowercase_letter(value):  # 영문 소문자가 하나라도 있는지 확인
 
     for letter in value:
         if letter.islower():
@@ -29,7 +29,7 @@ def contains_lowercase_letter(value):   # 영문 소문자가 하나라도 있�
     return False
 
 
-def contains_number(value):             # 문자열에 숫자가 하나라도 있는지 확인
+def contains_number(value):  # 문자열에 숫자가 하나라도 있는지 확인
 
     for letter in value:
         if letter.isdigit():

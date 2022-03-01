@@ -7,6 +7,7 @@ from django.views.generic import CreateView, ListView, DetailView, UpdateView, D
 from django.urls import reverse
 from posts.forms import PostForm
 from .models import Post
+
 # Create your views here.
 
 
@@ -14,13 +15,13 @@ from .models import Post
 #     return redirect('post-list')
 class IndexRedirectView(RedirectView):
 
-    pattern_name = 'post-list'
+    pattern_name = "post-list"
 
 
 class PostListView(ListView):
 
     model = Post
-    ordering = ['-created_date']
+    ordering = ["-created_date"]
     paginate_by = 6
 
 
@@ -37,7 +38,7 @@ class PostCreateView(CreateView):
     # template_name = 'posts/post_form.html'
 
     def get_success_url(self):
-        return reverse('post-detail', kwargs={'pk': self.object.id})
+        return reverse("post-detail", kwargs={"pk": self.object.id})
 
 
 class PostUpdateView(UpdateView):
@@ -47,7 +48,7 @@ class PostUpdateView(UpdateView):
     # pk_url_kwarg = 'post_id'
 
     def get_success_url(self):
-        return reverse('post-detail', kwargs={'pk': self.object.id})
+        return reverse("post-detail", kwargs={"pk": self.object.id})
 
 
 class PostDeleteView(DeleteView):
@@ -58,4 +59,4 @@ class PostDeleteView(DeleteView):
     # context_object_name = 'post'
 
     def get_success_url(self):
-        return reverse('post-list')
+        return reverse("post-list")

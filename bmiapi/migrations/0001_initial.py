@@ -7,18 +7,22 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Predictions',
+            name="Predictions",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('height', models.IntegerField(default=1)),
-                ('weight', models.IntegerField(default=1)),
-                ('sex', models.IntegerField(choices=[(0, 0), (1, 1)])),
-                ('prediction', models.CharField(choices=[('깡마름', '깡마름'), ('마름', '마름'), ('보통', '보통'), ('통통', '통통'), ('뚱뚱', '뚱뚱')], max_length=10)),
+                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                ("height", models.IntegerField(default=1)),
+                ("weight", models.IntegerField(default=1)),
+                ("sex", models.IntegerField(choices=[(0, 0), (1, 1)])),
+                (
+                    "prediction",
+                    models.CharField(
+                        choices=[("깡마름", "깡마름"), ("마름", "마름"), ("보통", "보통"), ("통통", "통통"), ("뚱뚱", "뚱뚱")], max_length=10
+                    ),
+                ),
             ],
         ),
     ]

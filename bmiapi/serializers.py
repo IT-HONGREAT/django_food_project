@@ -1,8 +1,8 @@
 from rest_framework import serializers
 from .models import Predictions
 
+
 class PredictionsSerializer(serializers.ModelSerializer):
-    
     class Meta:
         model = Predictions
         fields = [
@@ -10,4 +10,3 @@ class PredictionsSerializer(serializers.ModelSerializer):
             "weight",
             "sex",
         ]
-        

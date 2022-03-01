@@ -6,24 +6,24 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('foods', '0005_delete_menu'),
+        ("foods", "0005_delete_menu"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='user',
-            name='height',
+            model_name="user",
+            name="height",
             field=models.IntegerField(default=1),
         ),
         migrations.AddField(
-            model_name='user',
-            name='sex',
-            field=models.CharField(choices=[('0', '여'), ('1', '남')], default=1, max_length=2),
+            model_name="user",
+            name="sex",
+            field=models.CharField(choices=[("0", "여"), ("1", "남")], default=1, max_length=2),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='user',
-            name='weight',
+            model_name="user",
+            name="weight",
             field=models.IntegerField(default=1),
         ),
     ]

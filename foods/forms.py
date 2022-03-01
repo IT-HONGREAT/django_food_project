@@ -1,7 +1,6 @@
 from django import forms
-from django.forms import widgets
+
 from .models import Review, User, Comment
-from foods import models
 
 
 # class Signupform(forms.ModelForm):
@@ -45,15 +44,13 @@ class ProfileForm(forms.ModelForm):
             "intro": forms.Textarea,
         }
 
+
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = [
-            "comment"
-        ]
+        fields = ["comment"]
 
     def __init__(self, *args, **kwargs):
-        
-        self.request = kwargs.pop('request', None)
-        super(CommentForm, self).__init__(*args, **kwargs)
 
+        self.request = kwargs.pop("request", None)
+        super(CommentForm, self).__init__(*args, **kwargs)

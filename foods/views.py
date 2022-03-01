@@ -12,8 +12,13 @@ from foods.models import Review, User, Comment
 from braces.views import LoginRequiredMixin, UserPassesTestMixin
 from foods.functions import confirmation_required_redirect
 
-from rest_framework.generics import ListAPIView, RetrieveUpdateDestroyAPIView, RetrieveAPIView, RetrieveUpdateAPIView, \
-    ListCreateAPIView
+from rest_framework.generics import (
+    ListAPIView,
+    RetrieveUpdateDestroyAPIView,
+    RetrieveAPIView,
+    RetrieveUpdateAPIView,
+    ListCreateAPIView,
+)
 from foods.serializers import ReviewSerializer, ReviewDetailSerializer, ProfileSerializer, CommentSerializer
 
 
@@ -22,7 +27,7 @@ from foods.serializers import ReviewSerializer, ReviewDetailSerializer, ProfileS
 
 class IndexView(ListView):
     model = Review
-    ordering = ['-created_date']
+    ordering = ["-created_date"]
     context_object_name = "reviews"
     paginated_by = 10
 
@@ -38,11 +43,11 @@ class ReviewDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['form'] = CommentForm()
+        context["form"] = CommentForm()
         return context
 
     def get_success_url(self):
-        return reverse('review-detail', kwargs={'pk': self.object.id})
+        return reverse("review-detail", kwargs={"pk": self.object.id})
 
 
 # for api
@@ -54,7 +59,7 @@ class DetailUpdateView(RetrieveUpdateDestroyAPIView):
 class ReviewCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     model = Review
     form_class = Reviewform
-    template_name = 'foods/review_form.html'
+    template_name = "foods/review_form.html"
 
     redirect_unauthenticated_users = True
     raise_exception = confirmation_required_redirect
@@ -64,7 +69,7 @@ class ReviewCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
         return super().form_valid(form)
 
     def get_success_url(self):
-        return reverse('review-detail', kwargs={'pk': self.object.id})
+        return reverse("review-detail", kwargs={"pk": self.object.id})
 
     def test_func(self, user):
         return EmailAddress.objects.filter(user=user, verified=True).exists()
@@ -77,7 +82,7 @@ class ReviewUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     raise_exception = True
 
     def get_success_url(self):
-        return reverse('review-detail', kwargs={'pk': self.object.id})
+        return reverse("review-detail", kwargs={"pk": self.object.id})
 
     def test_func(self, user):
         review = self.get_object()
@@ -90,7 +95,7 @@ class ReviewDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     raise_exception = True
 
     def get_success_url(self):
-        return reverse('review-list')
+        return reverse("review-list")
 
     def test_func(self, user):
         review = self.get_object()
@@ -99,15 +104,14 @@ class ReviewDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 class ProfileView(DetailView):
     model = User
-    template_name = 'foods/profile.html'
+    template_name = "foods/profile.html"
     pk_url_kwarg = "pk"
     context_object_name = "profile_user"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         user_id = self.kwargs.get("pk")
-        context["user_reviews"] = Review.objects.filter(
-            author_id=user_id).order_by("-created_date")
+        context["user_reviews"] = Review.objects.filter(author_id=user_id).order_by("-created_date")
         return context
 
 
@@ -130,8 +134,7 @@ class UserReviewListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        context["profile_user"] = get_object_or_404(
-            User, id=self.kwargs.get("pk"))
+        context["profile_user"] = get_object_or_404(User, id=self.kwargs.get("pk"))
         return context
 
 
@@ -161,13 +164,13 @@ class ProfileUpdateView(LoginRequiredMixin, UpdateView):
 
 class CustomPasswordChangeView(LoginRequiredMixin, PasswordChangeView):
     def get_success_url(self):
-        return reverse('profile', kwargs={"pk": self.request.user.id})
+        return reverse("profile", kwargs={"pk": self.request.user.id})
 
 
 class ReviewComment(SingleObjectMixin, FormView):
     model = Review
     form_class = CommentForm
-    template_name = 'foods/review_detail.html'
+    template_name = "foods/review_detail.html"
 
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()
@@ -175,7 +178,7 @@ class ReviewComment(SingleObjectMixin, FormView):
 
     def get_form_kwargs(self):
         kwargs = super(ReviewComment, self).get_form_kwargs()
-        kwargs['request'] = self.request
+        kwargs["request"] = self.request
         return kwargs
 
     def form_valid(self, form):
@@ -186,7 +189,7 @@ class ReviewComment(SingleObjectMixin, FormView):
 
     def get_success_url(self):
         review = self.get_object()
-        return reverse('review-detail', kwargs={'pk': self.object.id}) + '#comments'
+        return reverse("review-detail", kwargs={"pk": self.object.id}) + "#comments"
 
 
 # for api
@@ -197,20 +200,19 @@ class CommentAPIView(ListCreateAPIView):
 
 class ReviewDisplay(DetailView):
     model = Review
-    template_name = 'foods/review_detail.html'
-    context_object_name = 'review'
+    template_name = "foods/review_detail.html"
+    context_object_name = "review"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['form'] = CommentForm()
+        context["form"] = CommentForm()
         return context
 
     def get_success_url(self):
-        return reverse('review-detail', kwargs={'pk': self.object.id})
+        return reverse("review-detail", kwargs={"pk": self.object.id})
 
 
 class ReviewDetailView(View):
-
     def get(self, request, *args, **kwargs):
         view = ReviewDisplay.as_view()
         return view(request, *args, **kwargs)

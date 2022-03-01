@@ -1,13 +1,12 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
+
 from .models import Review, User, Comment
 
 # Register your models here.
 
 admin.site.register(User, UserAdmin)
-UserAdmin.fieldsets += (("Custom fields",
-                         {"fields": ("nickname", "profile_img", "height",
-                                     "weight", "sex", "intro")}),)
+UserAdmin.fieldsets += (("Custom fields", {"fields": ("nickname", "profile_img", "height", "weight", "sex", "intro")}),)
 
 
 class ReviewComment(admin.StackedInline):

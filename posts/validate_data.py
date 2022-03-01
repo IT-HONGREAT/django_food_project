@@ -6,10 +6,10 @@ posts = Post.objects.all()
 def validate_post():
 
     for post in posts:
-        if '&' in post.content:
+        if "&" in post.content:
             print(f"{post.id}번글에 & 가 있습니다.")
 
-            post.content = post.content.replace('&', '')
+            post.content = post.content.replace("&", "")
 
             post.save()
         if post.created_date > post.modified_date:
